@@ -7,24 +7,53 @@
     <style>
       body {
         background-color: rgb(20, 20, 20);
-        /* margin: 0px; */
+        margin: 0rem;
         color: white;
-        margin-left: 1rem;
+        font-size: 18px;
+        font-style: normal;
       }
 
       p {
-        margin-left: 1.5em;
+        margin-left: 2rem;
+        font-style: normal;
+      }
+
+      code{
+        color: rgb(58, 114, 58);
+      }
+
+      h1 {
+        margin-left: 0.5rem;
+        font-style: normal;
+      }
+
+      h2 {
+        margin-left: 1rem;
+        font-style: normal;
+      }
+
+      h3 {
+        margin-left: 1.5rem;
+        font-style: normal;
       }
 
       span {
-        margin-left: 1.75rem;
+        margin-left: 2.5rem;
+        font-style: normal;
+      }
+
+      img {
+        margin-left: 1rem;
       }
 
       /* Add a black background color to the top navigation */
       .topnav {
         background-color: #333;
         overflow: hidden;
-        margin-left: 0px;
+      }
+
+      a  {
+        color: rgb(199, 128, 227);
       }
 
       /* Style the links inside the navigation bar */
@@ -35,6 +64,7 @@
         padding: 14px 16px;
         text-decoration: none;
         font-size: 17px;
+        transition-duration: 500ms;
       }
 
       /* Change the color of links on hover */
@@ -45,7 +75,7 @@
 
       /* Add a color to the active/current link */
       .topnav a.active {
-        background-color: #04aa6d;
+        background-color: rgb(58, 114, 58);
         color: white;
       }
     </style>
@@ -108,10 +138,10 @@
       <em>git config</em>.
     </p>
     <pre><code><span class="hljs-meta"># Befehl zum setzten des Nutzernamen</span>
-$ git config --<span class="hljs-keyword">global</span> user.name hanshuber
+<span class="hljs-keyword">$ global git config --user.name hanshuber</span>
 
 <span class="hljs-meta"># Befehl zum setzen der E-Mail</span>
-$ git config --<span class="hljs-keyword">global</span> user.email hans.huber<span class="hljs-symbol">@gmail</span>.com
+<span class="hljs-keyword">$ git config --global user.email hans.huber@gmail.com</span>
 </code></pre>
     <p>
       Die ersten Schritte sind geschafft 😁 <em>git</em> ist jetzt berteit für
@@ -177,7 +207,7 @@ $ git config --<span class="hljs-keyword">global</span> user.email hans.huber<sp
       werden (Cmd öffnet sich in VS-Code mit Strg + Ö)
     </p>
     <pre><code><span class="hljs-comment"># git clone "URL für Repository"</span>
-$ git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://github.com/firstcontributions/first-contributions.git
+<span class="hljs-keyword">$ git clone https://github.com/firstcontributions/first-contributions.git</span> 
 </code></pre>
     <h3 id="erstellung-eines-branch-_git-switch-c_-">
       Erstellung eines Branch (<em>git switch -c</em>)
@@ -191,21 +221,22 @@ $ git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</sp
       <em>git switch</em> verwendet. Jedoch muss man sich dafür mit der
       <em>Commandline</em> innerhalb des Repositorys befinden.
     </p>
-    <pre><code># <span class="hljs-keyword">cd</span> <span class="hljs-string">"Ordner wohin man möchte"</span>
-$ <span class="hljs-keyword">cd</span> <span class="hljs-keyword">first</span>-contributions
+    <pre><code><span class="hljs-keyword"># cd "Ordner wohin man möchte"</span>
+<span class="hljs-keyword">$ cd first-contributions</span>
 </code></pre>
     <p>
       Hans befindet sich im richtigen Ordner, da der Pfad den Namen seines
       Repositroys enthält.
     </p>
-    <pre><code>C:<span class="hljs-symbol">\U</span>sers<span class="hljs-symbol">\h</span>ans<span class="hljs-symbol">\D</span>okumente<span class="hljs-symbol">\f</span>irst-contributions&gt;
+    <pre><code><span class="hljs-symbol">C:\Users\hans\Dokumente\first-contributions>
+</span>
 </code></pre>
     <p>
       Um einen Branch zu erstellen benötigt man einen sinnvollen Namen. Dieser
       sollte das Feature beschreiben, das man umsetzen will.
     </p>
-    <pre><code># git <span class="hljs-keyword">switch</span> -<span class="hljs-built_in">c</span> <span class="hljs-string">"Branchname"</span>
-$ git <span class="hljs-keyword">switch</span> -<span class="hljs-built_in">c</span> added_Hans_Peter
+    <pre><code><span class="hljs-keyword"># git switch -c "Branchname"</span>
+<span class="hljs-keyword">$ git switch -c added_Hans_Peter</span>
 </code></pre>
     <p>
       Das &quot;-c&quot; steht hierfür &quot;create&quot;. Das heißt, falls man
@@ -217,9 +248,9 @@ $ git <span class="hljs-keyword">switch</span> -<span class="hljs-built_in">c</s
       <em>git branch</em>. Hierbei gibt es auch die Optionen -r oder -a (-r
       zeigt remote Repositories und -a zeigt lokale &amp; remote Repositories)
     </p>
-    <pre><code>$ git <span class="hljs-keyword">branch
-</span>    * <span class="hljs-keyword">added_Hans_Peter
-</span>      master
+    <pre><code><span class="hljs-keyword">$ git branch
+</span><span class="hljs-keyword">  * added_Hans_Peter
+</span><span>    master</span>      
 </code></pre>
     <p>
       Super! Jetzt darf man seinen Namen in die Datei Contributers.md schreiben
@@ -230,35 +261,36 @@ $ git <span class="hljs-keyword">switch</span> -<span class="hljs-built_in">c</s
       <em>git commit</em>)
     </h3>
     <p>
-      Zum Speichern der Änderungen reicht <em>Strg + S</em> leider nicht.Man
-      benötigt drei Schritte.
+      Zum Speichern der Änderungen reicht <em>Strg + S</em> allein leider nicht.
+      Man benötigt drei Schritte.
     </p>
     <ol>
       <li>Die Änderungen müssen mit <em>git status</em> ausgegeben werden.</li>
     </ol>
-    <pre><code>$ git status
-    Changes not staged for <span class="hljs-keyword">commit</span>:
-      (<span class="hljs-keyword">use</span> <span class="hljs-string">"git add/rm &lt;file&gt;..."</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">update</span> what will be committed)
-      (<span class="hljs-keyword">use</span> <span class="hljs-string">"git restore &lt;file&gt;..."</span> <span class="hljs-keyword">to</span> discard changes <span class="hljs-keyword">in</span> working <span class="hljs-keyword">directory</span>)
-        modified: Contributors.md
+    <pre><code><span>$ git status</span>
+    <span class="hljs-keyword">Changes not staged for commit</span>:
+      <span class="hljs-keyword">(use "git add/rm <file>..." to update what will be committed)</span> <span class="hljs-string">
+      <span class="hljs-keyword">(use "git restore <file>..." to discard changes in working directory)</span>
+        <span class="hljs-keyword">modified: Contributors.md</span>
 </code></pre>
     <ol>
       <li>
-        Alle Datein, die gespeochert werden sollen, müssen mit
+        Alle Datein, die gespeichert werden sollen, müssen mit
         <em>git add</em> zum nächsten &quot;commit&quot; hinzugefügt werden.
       </li>
     </ol>
-    <pre><code># git <span class="hljs-keyword">add </span><span class="hljs-string">"Dateiname"</span>
-$ git <span class="hljs-keyword">add </span>Contributors.md
-</code></pre>
+    <pre><code>
+      <span class="hljs-keyword"># git add "Dateiname" </span>
+      <span class="hljs-keyword">$ git add Contributors.md </span>
+    </code></pre>
     <p>
       3- Nun müssen diese Änderungen abgegeben/commited werden. Hierzu wird der
       Befehl <em>git commit</em> verwendet. Jeder <em>commit</em> muss eine
       Commit-Message enthalten. Diese wird mit -m hinzugefügt und beschreibt was
       seit dem letzten commit geändert wurde.
     </p>
-    <pre><code><span class="hljs-meta"># git commit -m <span class="hljs-meta-string">"Commit-Message"</span></span>
-$ git commit -m <span class="hljs-string">"Add Hans to Contributors list"</span>
+    <pre><code><span># git commit -m "Commit-Message"</span>
+<span>$ git commit -m "Add Hans to Contributors list"</span>
 </code></pre>
     <p>
       <img
@@ -275,8 +307,8 @@ $ git commit -m <span class="hljs-string">"Add Hans to Contributors list"</span>
       Projekt online zu sichern muss es auf gitHub hochgeladen/gepusht werden.
       Dafür wird der Befehl <em>git push</em> verwendet.
     </p>
-    <pre><code># git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> <span class="hljs-string">"Branchname"</span>
-$ git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> added_Hans_Peter
+    <pre><code><span># git push origin "Branchname"</span>
+<span>$ git push origin added_Hans_Peter</span>
 </code></pre>
     <p>
       Origin beschreibt hier, dass der Branch zu einem Online-Repository gehört.
@@ -358,18 +390,19 @@ $ git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin
       Um VS-Code als diff-Tool zu verwenden muss man die .gitconfig Datei
       bearbeiten.
     </p>
-    <pre><code><span class="hljs-comment"># Befehl um .gitconfig aufzurufen</span>
-$ git config <span class="hljs-comment">--global -e</span>
+    <pre><code><span># Befehl um .gitconfig aufzurufen</span>
+<span>$ git config --global -e</span>
 </code></pre>
-    <p>Dazu müssen in diese Datei folgende Zeilen Code hinzugefügt werden:</p>
-    <pre><code>[diff]
-  tool = vscode
-[difftool <span class="hljs-string">"vscode"</span>]
-  <span class="hljs-keyword">cmd</span><span class="bash"> = code --wait --diff <span class="hljs-variable">$LOCAL</span> <span class="hljs-variable">$REMOTE</span>
-</span>[merge]
-  tool = vscode
-[mergetool <span class="hljs-string">"vscode"</span>]
-  <span class="hljs-keyword">cmd</span><span class="bash"> = code --wait <span class="hljs-variable">$MERGED</span></span>
+<p>Dazu müssen in diese Datei folgende Zeilen Code hinzugefügt werden:</p>
+<code><pre>
+<span>[diff]</span>
+<span>  tool = vscode</span>
+<span>[difftool "vscode"]</span>
+<span>  cmd = code --wait --diff $LOCAL $REMOTE</span>
+<span>[merge]</span>
+<span>  tool = vscode</span>
+<span>[mergetool "vscode"]</span>
+<span>  cmd = code --wait $MERGED</span>
 </code></pre>
     <p>
       Jetzt kann man zwei Branches <em>mergen</em> in dem man mit
@@ -396,30 +429,31 @@ $ git config <span class="hljs-comment">--global -e</span>
       Person unteschiedlich) enthalten.
     </p>
     <p>Ein Beispiel für eine .gitignore Datei wäre:</p>
-    <pre><code><span class="hljs-comment"># Logs</span>
-<span class="hljs-attribute">logs</span>
-<span class="hljs-regexp">*.log</span>
-npm-<span class="hljs-literal">debug</span>.log*
-yarn-<span class="hljs-literal">debug</span>.log*
-yarn-<span class="hljs-literal">error</span>.log*
-pnpm-<span class="hljs-literal">debug</span>.log*
-lerna-<span class="hljs-literal">debug</span>.log*
-
-node_modules
-dist
-dist-ssr
-<span class="hljs-regexp">*.local</span>
-
-<span class="hljs-comment"># Editor directories and files</span>
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-<span class="hljs-regexp">*.suo</span>
-<span class="hljs-regexp">*.ntvs</span>*
-<span class="hljs-regexp">*.njsproj</span>
-<span class="hljs-regexp">*.sln</span>
-<span class="hljs-regexp">*.sw</span>?
+    <pre><code>
+<span># Logs</span>
+<span>logs</span>
+<span>*.log</span>
+<span>npm-debug.log*</span>
+<span>yarn-debug.log*</span>
+<span>yarn-error.log*</span>
+<span>pnpm-debug.log*</span>
+<span>lerna-debug.log*</span>lerna-debug.log*
+<span></span>
+<span>node_modules</span>
+<span>dist</span>
+<span>dist-ssr</span>
+<span>*.local</span>
+<span></span>
+<span># Editor directories and files</span>
+<span>.vscode/*</span>
+<span>!.vscode/extensions.json</span>
+<span>.idea</span>
+<span>.DS_Store</span>
+<span>*.suo</span>
+<span>*.ntvs*</span>
+<span>*.njsproj</span>
+<span>*.sln</span>
+<span>*.sw?</span>
 </code></pre>
   </body>
 </html>
