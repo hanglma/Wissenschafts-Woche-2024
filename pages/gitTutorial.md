@@ -4,56 +4,56 @@
 
 ### Installation der Programme
 
-Als erstes muss _git_ natürlich installiert werden. Dafür müssen die Download-Files von https://git-scm.com/download/win heruntergeladen werden.
-Der Link führt zum Download für die Windows Version von _git_, hier kann die neuste Version herunterladen.
+Als erstes muss _git_ installiert werden. Dafür müssen die Download-Files von https://git-scm.com/download/win heruntergeladen werden.
+Dieser Link führt zum Download für die Windows Version von _git_.
 
-Um nun _git_ zu installieren muss man die gerade heruntergeladene .exe Datei die ausführen. Nun wird dir ein Dialogfenster angezeigt, das Optionen zur Installation von _git_ enthält. Die Voreinstellungen passen so wie sie sind, d.h. es kann einfach durch geklickt werden.
+Um nun _git_ zu installieren muss man die gerade heruntergeladene .exe Datei ausführen. Nun erscheint ein Dialogfenster, das Optionen zur Installation von _git_ enthält. Die Voreinstellungen passen so wie sie sind, d.h. es kann einfach durch geklickt werden.
 
-Natürchlich braucht man auch einen Code-Editor. Im folgenden wird Visual Studio Code genutzt, jedoch is in diesem Tutorial leider keine Zeit für ein vollständiges Tutorial von VS-Code. Hier ist ein Video, dass trotzdem nützlich sein könnte 😉 https://www.youtube.com/watch?v=r5jNl-IOSZg
+Außerdem braucht man einen Code-Editor. Im folgenden wird Visual Studio Code genutzt. In diesem Tutorial ist leider keine Zeit für eine vollständige Einführung in VS-Code. Hier ist ein Video, das trotzdem nützlich sein könnte 😉 https://www.youtube.com/watch?v=r5jNl-IOSZg
 
 ### Anmeldung bei gitHub oder gitLab
 
-Um mit _git_ Repositories zu verwalten braucht man natürlich auch Repositories. Hierfür muss ein gitHub oder gitLab Account erstellt werden. Beide Websites funktionieren gut jedoch ist gitHub die größere Plattform was heißt, dass es dort mehr Projekt von Anderen zufinden gibt.
+Um mit _git_ Repositories/Projekte zu verwalten braucht man Repositories. Hierfür muss ein gitHub oder gitLab Account erstellt werden. Beide Websites funktionieren gut. GitHub ist jedoch die größere Plattform, deshalb gibt es dort mehr Projekt von Anderen.
 
-Für die Registrierung folge bitte diesem Link: https://github.com (Nutzerdaten merken!!!)
+Für die Registrierung bitte diesem Link folgen: https://github.com (Nutzerdaten merken!!!)
 
 ### Einrichtung Username & E-Mail
 
-Um nun das _git_ des Computers mit gitHub zu verbinden muss die _.gitconfig-Datei_ bearbeitet werden. Dies geschiet mit dem Befehl _git config_.
+Um das _git_ des Computers mit gitHub zu verbinden, muss die _.gitconfig-Datei_ bearbeitet werden. Dies geschiet mit dem Befehl _git config_.
 
 ```
 # Befehl zum setzten des Nutzernamen
-$ git config --global user.name hanspeter
+$ git config --global user.name hanshuber
 
 # Befehl zum setzen der E-Mail
-$ git config --global user.email hans@peter.de
+$ git config --global user.email hans.huber@gmail.com
 ```
 
-Die ersten Schritte sind geschafft 😁 _git_ ist jetzt berteit für das erste Projekt. Aber wie und welche Befehle kannst man dabei gebrauchen kann, dass kommt im nächsten Abschnitt.
+Die ersten Schritte sind geschafft 😁 _git_ ist jetzt berteit für das erste Projekt. Aber welche Befehle werden wie eingesetzt? Das kommt im folgenden Abschnitt.
 
-## 2. grundlegende Begriffe und Befehle + erstes Projekt
+## 2. Grundlegende Begriffe und Befehle + erstes Projekt
 
-Um die Grundlegenden Begriffe und Befehle zu lernen kann man ein Projekt namens _first-contributions_. Hier wird einem beigebracht wie man mit Menschen aus der ganzen Welt zusammenarbeiten kannst.
+Um die Grundlegenden Begriffe und Befehle zu lernen, kann man an einem Projekt namens _first-contributions_ teilnehmen. Hier werden die Grundlagen vermittelt, die das Zusammenarbeiten von Programmierern aus der ganzen Welt ermöglichen.
 
-Hier ein Link für dieses Projekt: https://github.com/firstcontributions/first-contributions/tree/main
+Der Link für dieses Projekt lautet: https://github.com/firstcontributions/first-contributions/tree/main
 
-### ein Repository _"forken"_
+### Repositories _"forken"_
 
-Als erstes muss man das Repository _"forken"_ damit Änderungen daran vorgenommen werden können. Hierzu muss auf den Knopf namens Fork geklickt werden.
+Als erstes muss man das Repository _"forken"_, damit Änderungen daran vorgenommen werden können. Hierzu muss auf den Button namens Fork geklickt werden.
 
 ![Picture of where to Fork](picture/forkPicture1.png)
 
-Als nächstes auf Create Fork klicken. (alle anderen Einstellungen passen so wie sie sind) Dies sollte nun eine Kopie des Repositorys im persöhnlichen Account erstellen.
+Als nächstes auf Create Fork klicken (alle anderen Einstellungen passen so wie sie sind). Dies sollte nun eine Kopie des Repositorys im persöhnlichen Account erstellen.
 
 <img src="picture/forkPicture2.png" alt="picture of how to fork" width="400"/>
 
 ### das Projekt auf den eigenen Computer laden (_git clone_)
 
-Jetzt wird das vorher _"geforkte"_ Repository auf den Computer _geklont_. Dazu öffnet man das Repository in seinem Account und klickt auf den Knopf "Code".
+Jetzt wird das vorher _"geforkte"_ Repository auf den Computer _geklont_. Dazu öffnet man das Repository in seinem Account und klickt auf den Button "Code".
 
 ![picture of where to clone](picture/clonePicture1.png)
 
-Nun öffnet sich ein Fenster mit einre URL, diese muss kopiert werden.
+Nun öffnet sich ein Fenster mit einer URL. Diese muss kopiert werden.
 
 ![picture of how to clone](picture/clonePicture2.png)
 
@@ -70,7 +70,7 @@ $ git clone https://github.com/firstcontributions/first-contributions.git
 
 Bei der Verwendung von _git_ erstellt man für jedes neue Feature einen Branch, den man danach wieder in den Branch _main_ einbettet.
 
-Um einen Branch zu erstellen wird der Befehl _git switch_ verwendet. Jedoch muss man sich dafür mit der _Commandline_ innerhalb des innerhalb des Repositorys befinden.
+Um einen Branch zu erstellen wird der Befehl _git switch_ verwendet. Jedoch muss man sich dafür mit der _Commandline_ innerhalb des Repositorys befinden.
 
 ```
 # cd "Ordner wohin man möchte"
@@ -83,16 +83,16 @@ Hans befindet sich im richtigen Ordner, da der Pfad den Namen seines Repositroys
 C:\Users\hans\Dokumente\first-contributions>
 ```
 
-Um einen Branch zu erstellen brauch man natürlich auch einen sinnvollen Namen. Dieser sollte das Feature beschreiben, dass man in diesem umsetzen will.
+Um einen Branch zu erstellen benötigt man einen sinnvollen Namen. Dieser sollte das Feature beschreiben, das man umsetzen will.
 
 ```
 # git switch -c "Branchname"
 $ git switch -c added_Hans_Peter
 ```
 
-Das "-c" steht hierfür "create". Das heißt falls man zwischen mehreren Branches wechseln will, ohne einen neuen zu erstellen, lässt man "-c" einfach weg.
+Das "-c" steht hierfür "create". Das heißt, falls man zwischen mehreren Branches wechseln will, ohne einen neuen zu erstellen, lässt man "-c" weg.
 
-Um zu sehen in welchem Branch man sich befindet nutzt den Befehl _git branch_. Hierbei hat man auch die Optionen -r oder -a (-r => zeigt remote Repositories & -a => zeigt lokale und remote Repositories)
+Um zu sehen in welchem Branch man sich befindet, nutzt man den Befehl _git branch_. Hierbei gibt es auch die Optionen -r oder -a (-r zeigt remote Repositories und -a zeigt lokale & remote Repositories)
 
 ```
 $ git branch
@@ -104,7 +104,9 @@ Super! Jetzt darf man seinen Namen in die Datei Contributers.md schreiben 😎
 
 ### Änderungen speichern (_git status_, _git add_ & _git commit_)
 
-Zum Speichern der Änderungen reicht _Strg + S_ leider nicht. Als erstes werden mit _git status_ die Änderungen ausgegeben.
+Zum Speichern der Änderungen reicht _Strg + S_ leider nicht.Man benötigt drei Schritte.
+
+1. Die Änderungen müssen mit _git status_ ausgegeben werden.
 
 ```
 $ git status
@@ -114,14 +116,14 @@ $ git status
         modified: Contributors.md
 ```
 
-Als nächstes muss man alle veränderten Datein mit _git add_ zum nächsten "commit" hinzufügen.
+2. Alle Datein, die gespeochert werden sollen, müssen mit _git add_ zum nächsten "commit" hinzugefügt werden.
 
 ```
 # git add "Dateiname"
 $ git add Contributors.md
 ```
 
-Zuletzt müssen diese Änderungen abgegeben/commited werden. Hierzu wird der Befehl _git commit_ verwendet. Jeder _commit_ sollte eine Commit-Message enthalten. Diese wird mit -m hinzugefügt und beschreibt was seit dem letzten commit geändert wurde.
+3- Nun müssen diese Änderungen abgegeben/commited werden. Hierzu wird der Befehl _git commit_ verwendet. Jeder _commit_ muss eine Commit-Message enthalten. Diese wird mit -m hinzugefügt und beschreibt was seit dem letzten commit geändert wurde.
 
 ```
 # git commit -m "Commit-Message"
@@ -139,11 +141,11 @@ Alle Änderungen, die bis jetzt vorgenommen wurden, waren local. Um nun das Proj
 $ git push origin added_Hans_Peter
 ```
 
-Origin steht beschreibt hier, dass der Branch zu einem Online-Repository gehört.
+Origin beschreibt hier, dass der Branch zu einem Online-Repository gehört.
 
 ### Projekt in das Orginal-Projekt integrieren (_pull request_)
 
-Jetzt, da alle Änderungen vorgenommen wurden kann man das Projekt wieder in das Orginalprojekt integrieren. Hierzu navigiert man auf gitHub wieder zu seinem Projekt und erstellt eine sogenannte _pull request_.
+Jetzt, da alle Änderungen vorgenommen wurden, kann das Projekt wieder in das Orginal-Projekt integriert werden. Hierzu navigiert man auf gitHub zurück zu seinem Projekt und erstellt eine sogenannte _pull request_.
 
 ![where to pullRequest](picture/pullRepuest1.png)
 
@@ -151,23 +153,29 @@ Nun öffnet sich ein Fenster indem man den Namen seiner _pull request_ und einen
 
 ![comment for pullRequest](picture/pullRequest2.png)
 
-Der Verwalter des Projekts muss nun die _pull request_ annehmen. Nachdem er den Fork annimmt wird der Text, den man vorhin eingetragen hat, in _Contributors.md_ angezeigt.
+Der Verwalter des Original-Projekts muss nun die _pull request_ annehmen. Nachdem er diese annimmt wird der Text, den man vorhin eingetragen hat, in _Contributors.md_ angezeigt.
 
-## 4. nützliches Wissen
+Das erste Projekt ist nun geschafft 😊
+
+## 3. nützliches Wissen
+
+### Integration in VS-Code
+
+In VS-Code kann man auch ohne _Cmd_ Änderungen _adden, commiten und pushen_. Im Fenster _Source Control_ wird mit dem Plus-Symbol sozusagen der Befehl _git add_ ausgeführt. Mit dem Commit-Button können dann alle so hinzugefügten Änderungen _commited_ werden. Nachdem alles so gespeichert wurde kann mit _Sync all Changes_ das Online-Repository auf den neusten Stand gebracht werden.
 
 ### Wiederherstellung einer bestimmten Version des Projekts
 
-Die Wiederherstellung einer füheren Version des Projekts kann ganz einfach mit der Erweiterung _gitLense für VS-Code_ erreichen.
+Die Wiederherstellung einer früheren Version des Projekts kann ganz einfach mit der Erweiterung _gitLense für VS-Code_ erreicht werden.
 
-Nach der Installation sollte ein neues Icon in der rechten Leiste erscheinen, welches nach ein neues Fenster in der rechten Spalte öffnet. Hier kann man den Reiter Commit-Graph wählen, welches wieder ein Fenster aufmacht in dem alle _Commits_ gezeigt werden. Nun wählt man lediglich den Commit zu dem man schauen möchte aus und klickt die drei Punkte. In diesem Fenster wählt man _Switch to Commit_ um mit dem _HEAD_ (der Stand der in VS-Code angezeigt wird) in diesn Commit zu wechseln.
+Nach der Installation sollte ein neues Icon in der rechten Leiste erscheinen, welches bei klick ein neues Fenster in der rechten Spalte öffnet. Hier kann man den Reiter Commit-Graph wählen, welches wieder ein Fenster aufmacht in dem alle _Commits_ gezeigt werden. Nun wählt man lediglich den Commit, den man betrachten möchte, aus und klickt auf die drei Punkte. In einem neu geöffneten Fenster wählt man _Switch to Commit_ um mit dem _HEAD_ (der Stand der in VS-Code angezeigt wird) in diesen Commit zu wechseln.
 
 <img src="picture/restorePicture1.png" alt="picture of commit Messages" width="600"/>
 
-Um nun das Projekt auf diesen Stand zurück zusetzten, wählt man wieder die drei Punkte aber jetzt anstelle von _Switch to Commit_, _Rebase to Commit_ dies setzt den Branch _master_ auf den Stand dieses Commits.
+Um nun das Projekt auf diesen Stand zurück zusetzten, wählt man wieder die drei Punkte, aber jetzt anstelle von _Switch to Commit_ _Rebase to Commit_. Dies setzt den aktuellen Branch auf den Stand dieses Commits.
 
 <img src="picture/restorePicture2.png" alt="picture of commit Messages" width="600"/>
 
-### Mergen von zwei Branchen mit einem diff-Tool
+### Mergen von zwei Branches mit einem diff-Tool
 
 Um VS-Code als diff-Tool zu verwenden muss man die .gitconfig Datei bearbeiten.
 
@@ -176,7 +184,7 @@ Um VS-Code als diff-Tool zu verwenden muss man die .gitconfig Datei bearbeiten.
 $ git config --global -e
 ```
 
-In diese Datei müssen folgenden Zeilen Code hinzugefügt werden:
+Dazu müssen in diese Datei folgende Zeilen Code hinzugefügt werden:
 
 ```
 [diff]
@@ -189,17 +197,13 @@ In diese Datei müssen folgenden Zeilen Code hinzugefügt werden:
   cmd = code --wait $MERGED
 ```
 
-Man kann jetzt zwei Branches _mergen_ in dem man mit _git switch_ zu dem Branch navigiert in den der andere Branch hinein gemerged werden soll. Als nächstes kann mit _Strg + Shift + P_ nach dem Command _"Git: Merge Branch"_ nun muss man lediglich den zweiten Branch auswählen.
+Jetzt kann man zwei Branches _mergen_ in dem man mit _git switch_ zu dem Branch navigiert, in den der andere Branch hinein gemerged werden soll. Als nächstes kann mit _Strg + Shift + P_ nach dem Command _"Git: Merge Branch"_ suchen. Nun muss lediglich der zweite Branch ausgewählt werden..
 
-Falls während dem Merge ein Widersprüche auftreten können dieses mit dem in VS-Code eingebautem _diff-Tool_ gelöst werden. In diesem Tool kann gewählt werden welche Version des Codes genommen werden soll.
-
-### Integration in VS-Code
-
-In VS-Code kann man auch ohne _Cmd_ Änderungen _adden, commiten und pushen_. Im Fenster _Source Control_ kann mit dem Plus-Symbol sozusagen der Befehl _git add_ ausgeführt werden. Mit dem Commit-Knopf können dann alle so hinzugefügten Änderungen _commited_ werden. Nachdem alles so gespeichert wured kann mit --- das Online-Repository auf den neusten Stand gebracht werden.
+Falls während einem Merge Widersprüche auftreten, können diese nun mit dem in VS-Code eingebauten _diff-Tool_ gelöst werden. Mit diesem Tool kann gewählt werden, welche Version des Codes verwendet werden soll.
 
 ### nicht alles Hochladen -> .gitignore
 
-Mit einer .gitignore Datei kann können bestimmte Datein bestimmt werden, die _git_ nicht tracken soll und somit auch nicht bei _Commits_ mitnehmen soll. Dies sind Dateien die nicht für die öffentlichkeit bestimmt sind und auch nicht auf gitHub landen sollten. Ein beispiel für solche Datein wären welche, die SSH-Keys, die für jede Person unteschielich sind, enthalten.
+Mit einer .gitignore Datei können bestimmte Datein ausgewählt werden, die _git_ nicht tracken soll und somit auch nicht bei _Commits_ hochladen soll. Dies sind Dateien, die nicht für die Öffentlichkeit bestimmt sind und auch nicht auf gitHub landen sollten. Ein Beispiel für solche Datein wären Dateien, die SSH-Keys (sind für jede Person unteschiedlich) enthalten.
 
 Ein Beispiel für eine .gitignore Datei wäre:
 
