@@ -1,471 +1,482 @@
-<h1 id="versionsverwaltung-der-zukunft-beispiele-mit-git">
-  Versionsverwaltung der Zukunft: Beispiele mit git
-</h1>
-<h2 id="1-installation-und-einrichtung">1. Installation und Einrichtung</h2>
-<h3 id="installation-der-programme">Installation der Programme</h3>
-<p>
-  Als erstes muss <em>git</em> natürlich installiert werden. Dafür müssen die
-  Download-Files von
-  <a href="https://git-scm.com/download/win"
-    >https://git-scm.com/download/win</a
-  >
-  heruntergeladen werden. Der Link führt zum Download für die Windows Version
-  von <em>git</em>, hier kann die neuste Version herunterladen.
-</p>
-<p>
-  Um nun <em>git</em> zu installieren muss man die gerade heruntergeladene .exe
-  Datei die ausführen. Nun wird dir ein Dialogfenster angezeigt, das Optionen
-  zur Installation von <em>git</em> enthält. Die Voreinstellungen passen so wie
-  sie sind, d.h. es kann einfach durch geklickt werden.
-</p>
-<p>
-  Natürchlich braucht man auch einen Code-Editor. Im folgenden wird Visual
-  Studio Code genutzt, jedoch is in diesem Tutorial leider keine Zeit für ein
-  vollständiges Tutorial von VS-Code. Hier ist ein Video, dass trotzdem nützlich
-  sein könnte 😉
-  <a href="https://www.youtube.com/watch?v=r5jNl-IOSZg"
-    >https://www.youtube.com/watch?v=r5jNl-IOSZg</a
-  >
-</p>
-<h3 id="anmeldung-bei-github-oder-gitlab">Anmeldung bei gitHub oder gitLab</h3>
-<p>
-  Um mit <em>git</em> Repositories zu verwalten braucht man natürlich auch
-  Repositories. Hierfür muss ein gitHub oder gitLab Account erstellt werden.
-  Beide Websites funktionieren gut jedoch ist gitHub die größere Plattform was
-  heißt, dass es dort mehr Projekt von Anderen zufinden gibt.
-</p>
-<p>
-  Für die Registrierung folge bitte diesem Link:
-  <a href="https://github.com">https://github.com</a> (Nutzerdaten merken!!!)
-</p>
-<h3 id="einrichtung-username-e-mail">Einrichtung Username &amp; E-Mail</h3>
-<p>
-  Um nun das <em>git</em> des Computers mit gitHub zu verbinden muss die
-  <em>.gitconfig-Datei</em> bearbeitet werden. Dies geschiet mit dem Befehl
-  <em>git config</em>.
-</p>
-<pre><code><span class="hljs-meta"># Befehl zum setzten des Nutzernamen</span>
-$ git config --<span class="hljs-keyword">global</span> user.name hanspeter
-
-<span class="hljs-meta"># Befehl zum setzen der E-Mail</span>
-$ git config --<span class="hljs-keyword">global</span> user.email hans<span class="hljs-symbol">@peter</span>.de
-</code></pre>
-<p>
-  Die ersten Schritte sind geschafft 😁 <em>git</em> ist jetzt berteit für das
-  erste Projekt. Aber wie und welche Befehle kannst man dabei gebrauchen kann,
-  dass kommt im nächsten Abschnitt.
-</p>
-<h2 id="2-grundlegende-begriffe-und-befehle-erstes-projekt">
-  2. grundlegende Begriffe und Befehle + erstes Projekt
-</h2>
-<p>
-  Um die Grundlegenden Begriffe und Befehle zu lernen kann man ein Projekt
-  namens <em>first-contributions</em>. Hier wird einem beigebracht wie man mit
-  Menschen aus der ganzen Welt zusammenarbeiten kannst.
-</p>
-<p>
-  Hier ein Link für dieses Projekt:
-  <a href="https://github.com/firstcontributions/first-contributions/tree/main"
-    >https://github.com/firstcontributions/first-contributions/tree/main</a
-  >
-</p>
-<h3 id="ein-repository-forken-">ein Repository <em>&quot;forken&quot;</em></h3>
-<p>
-  Als erstes muss man das Repository <em>&quot;forken&quot;</em> damit
-  Änderungen daran vorgenommen werden können. Hierzu muss auf den Knopf namens
-  Fork geklickt werden.
-</p>
-<p><img src="picture/forkPicture1.png" alt="Picture of where to Fork" /></p>
-<p>
-  Als nächstes auf Create Fork klicken. (alle anderen Einstellungen passen so
-  wie sie sind) Dies sollte nun eine Kopie des Repositorys im persöhnlichen
-  Account erstellen.
-</p>
-<p>
-  <img
-    src="picture/forkPicture2.png"
-    alt="picture of how to fork"
-    width="400"
-  />
-</p>
-<h3 id="das-projekt-auf-den-eigenen-computer-laden-git-clone-">
-  das Projekt auf den eigenen Computer laden (<em>git clone</em>)
-</h3>
-<p>
-  Jetzt wird das vorher <em>&quot;geforkte&quot;</em> Repository auf den
-  Computer <em>geklont</em>. Dazu öffnet man das Repository in seinem Account
-  und klickt auf den Knopf &quot;Code&quot;.
-</p>
-<p><img src="picture/clonePicture1.png" alt="picture of where to clone" /></p>
-<p>Nun öffnet sich ein Fenster mit einre URL, diese muss kopiert werden.</p>
-<p><img src="picture/clonePicture2.png" alt="picture of how to clone" /></p>
-<p>
-  Um das Repositroy zu klonen gibt man jetzt den Befehl
-  <em>git clone</em> gefolgt von der gerade kopierten URL.
-</p>
-<p>
-  Dieser Befehl muss in <em>Commandline</em> oder <em>Cmd</em> eingegeben werden
-  (Cmd öffnet sich in VS-Code mit Strg + Ö)
-</p>
-<pre><code><span class="hljs-comment"># git clone "URL für Repository"</span>
-$ git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://github.com/firstcontributions/first-contributions.git
-</code></pre>
-<h3 id="erstellung-eines-branch-git-switch-c-">
-  Erstellung eines Branch (<em>git switch -c</em>)
-</h3>
-<p>
-  Bei der Verwendung von <em>git</em> erstellt man für jedes neue Feature einen
-  Branch, den man danach wieder in den Branch <em>main</em> einbettet.
-</p>
-<p>
-  Um einen Branch zu erstellen wird der Befehl <em>git switch</em> verwendet.
-  Jedoch muss man sich dafür mit der <em>Commandline</em> innerhalb des
-  innerhalb des Repositorys befinden.
-</p>
-<pre><code># <span class="hljs-keyword">cd</span> <span class="hljs-string">"Ordner wohin man möchte"</span>
-$ <span class="hljs-keyword">cd</span> <span class="hljs-keyword">first</span>-contributions
-</code></pre>
-<p>
-  Hans befindet sich im richtigen Ordner, da der Pfad den Namen seines
-  Repositroys enthält.
-</p>
-<pre><code>C:<span class="hljs-symbol">\U</span>sers<span class="hljs-symbol">\h</span>ans<span class="hljs-symbol">\D</span>okumente<span class="hljs-symbol">\f</span>irst-contributions&gt;
-</code></pre>
-<p>
-  Um einen Branch zu erstellen brauch man natürlich auch einen sinnvollen Namen.
-  Dieser sollte das Feature beschreiben, dass man in diesem umsetzen will.
-</p>
-<pre><code># git <span class="hljs-keyword">switch</span> -<span class="hljs-built_in">c</span> <span class="hljs-string">"Branchname"</span>
-$ git <span class="hljs-keyword">switch</span> -<span class="hljs-built_in">c</span> added_Hans_Peter
-</code></pre>
-<p>
-  Das &quot;-c&quot; steht hierfür &quot;create&quot;. Das heißt falls man
-  zwischen mehreren Branches wechseln will, ohne einen neuen zu erstellen, lässt
-  man &quot;-c&quot; einfach weg.
-</p>
-<p>
-  Um zu sehen in welchem Branch man sich befindet nutzt den Befehl
-  <em>git branch</em>. Hierbei hat man auch die Optionen -r oder -a (-r =&gt;
-  zeigt remote Repositories &amp; -a =&gt; zeigt lokale und remote Repositories)
-</p>
-<pre><code>$ git <span class="hljs-keyword">branch
-</span>    * <span class="hljs-keyword">added_Hans_Peter
-</span>      master
-</code></pre>
-<p>
-  Super! Jetzt darf man seinen Namen in die Datei Contributers.md schreiben 😎
-</p>
-<h3 id="-nderungen-speichern-git-status-git-add-git-commit-">
-  Änderungen speichern (<em>git status</em>, <em>git add</em> &amp;
-  <em>git commit</em>)
-</h3>
-<p>
-  Zum Speichern der Änderungen reicht <em>Strg + S</em> leider nicht. Als erstes
-  werden mit <em>git status</em> die Änderungen ausgegeben.
-</p>
-<pre><code>$ git status
-    Changes not staged for <span class="hljs-keyword">commit</span>:
-      (<span class="hljs-keyword">use</span> <span class="hljs-string">"git add/rm &lt;file&gt;..."</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">update</span> what will be committed)
-      (<span class="hljs-keyword">use</span> <span class="hljs-string">"git restore &lt;file&gt;..."</span> <span class="hljs-keyword">to</span> discard changes <span class="hljs-keyword">in</span> working <span class="hljs-keyword">directory</span>)
-        modified: Contributors.md
-</code></pre>
-<p>
-  Als nächstes muss man alle veränderten Datein mit <em>git add</em> zum
-  nächsten &quot;commit&quot; hinzufügen.
-</p>
-<pre><code># git <span class="hljs-keyword">add </span><span class="hljs-string">"Dateiname"</span>
-$ git <span class="hljs-keyword">add </span>Contributors.md
-</code></pre>
-<p>
-  Zuletzt müssen diese Änderungen abgegeben/commited werden. Hierzu wird der
-  Befehl <em>git commit</em> verwendet. Jeder <em>commit</em> sollte eine
-  Commit-Message enthalten. Diese wird mit -m hinzugefügt und beschreibt was
-  seit dem letzten commit geändert wurde.
-</p>
-<pre><code><span class="hljs-meta"># git commit -m <span class="hljs-meta-string">"Commit-Message"</span></span>
-$ git commit -m <span class="hljs-string">"Add Hans to Contributors list"</span>
-</code></pre>
-<p>
-  <img
-    src="picture/commitMessages.png"
-    alt="picture of commit Messages"
-    width="400"
-  />
-</p>
-<h3 id="-nderungen-hochladen-pushen-git-push-">
-  Änderungen hochladen/pushen (<em>git push</em>)
-</h3>
-<p>
-  Alle Änderungen, die bis jetzt vorgenommen wurden, waren local. Um nun das
-  Projekt online zu sichern muss es auf gitHub hochgeladen/gepusht werden. Dafür
-  wird der Befehl <em>git push</em> verwendet.
-</p>
-<pre><code># git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> <span class="hljs-string">"Branchname"</span>
-$ git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> added_Hans_Peter
-</code></pre>
-<p>
-  Origin steht beschreibt hier, dass der Branch zu einem Online-Repository
-  gehört.
-</p>
-<h3 id="projekt-in-das-orginal-projekt-integrieren-pull-request-">
-  Projekt in das Orginal-Projekt integrieren (<em>pull request</em>)
-</h3>
-<p>
-  Jetzt, da alle Änderungen vorgenommen wurden kann man das Projekt wieder in
-  das Orginalprojekt integrieren. Hierzu navigiert man auf gitHub wieder zu
-  seinem Projekt und erstellt eine sogenannte <em>pull request</em>.
-</p>
-<p><img src="picture/pullRepuest1.png" alt="where to pullRequest" /></p>
-<p>
-  Nun öffnet sich ein Fenster indem man den Namen seiner
-  <em>pull request</em> und einen Kommentar eingibt. Beides sollte definieren
-  was mit dieser <em>pull request</em> erreichent werden soll.
-</p>
-<p><img src="picture/pullRequest2.png" alt="comment for pullRequest" /></p>
-<p>
-  Der Verwalter des Projekts muss nun die <em>pull request</em> annehmen.
-  Nachdem er den Fork annimmt wird der Text, den man vorhin eingetragen hat, in
-  <em>Contributors.md</em> angezeigt.
-</p>
-<h2 id="4-n-tzliches-wissen">4. nützliches Wissen</h2>
-<h3 id="wiederherstellung-einer-bestimmten-version-des-projekts">
-  Wiederherstellung einer bestimmten Version des Projekts
-</h3>
-<p>
-  Die Wiederherstellung einer füheren Version des Projekts kann ganz einfach mit
-  der Erweiterung <em>gitLense für VS-Code</em> erreichen.
-</p>
-<p>
-  Nach der Installation sollte ein neues Icon in der rechten Leiste erscheinen,
-  welches nach ein neues Fenster in der rechten Spalte öffnet. Hier kann man den
-  Reiter Commit-Graph wählen, welches wieder ein Fenster aufmacht in dem alle
-  <em>Commits</em> gezeigt werden. Nun wählt man lediglich den Commit zu dem man
-  schauen möchte aus und klickt die drei Punkte. In diesem Fenster wählt man
-  <em>Switch to Commit</em> um mit dem <em>HEAD</em> (der Stand der in VS-Code
-  angezeigt wird) in diesn Commit zu wechseln.
-</p>
-<p>
-  <img
-    src="picture/restorePicture1.png"
-    alt="picture of commit Messages"
-    width="600"
-  />
-</p>
-<p>
-  Um nun das Projekt auf diesen Stand zurück zusetzten, wählt man wieder die
-  drei Punkte aber jetzt anstelle von <em>Switch to Commit</em>,
-  <em>Rebase to Commit</em> dies setzt den Branch <em>master</em> auf den Stand
-  dieses Commits.
-</p>
-<p>
-  <img
-    src="picture/restorePicture2.png"
-    alt="picture of commit Messages"
-    width="600"
-  />
-</p>
-<h3 id="mergen-von-zwei-branchen-mit-einem-diff-tool">
-  Mergen von zwei Branchen mit einem diff-Tool
-</h3>
-<p>
-  Um VS-Code als diff-Tool zu verwenden muss man die .gitconfig Datei
-  bearbeiten.
-</p>
-<pre><code><span class="hljs-comment"<h1 id="versionsverwaltung-der-zukunft-beispiele-mit-git">Versionsverwaltung der Zukunft: Beispiele mit git</h1>
-<h2 id="1-installation-und-einrichtung">1. Installation und Einrichtung</h2>
-<h3 id="installation-der-programme">Installation der Programme</h3>
-<p>Als erstes muss <em>git</em> natürlich installiert werden. Dafür müssen die Download-Files von <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a> heruntergeladen werden.
-Der Link führt zum Download für die Windows Version von <em>git</em>, hier kann die neuste Version herunterladen.</p>
-<p>Um nun <em>git</em> zu installieren muss man die gerade heruntergeladene .exe Datei die ausführen. Nun wird dir ein Dialogfenster angezeigt, das Optionen zur Installation von <em>git</em> enthält. Die Voreinstellungen passen so wie sie sind, d.h. es kann einfach durch geklickt werden.</p>
-<p>Natürchlich braucht man auch einen Code-Editor. Im folgenden wird Visual Studio Code genutzt, jedoch is in diesem Tutorial leider keine Zeit für ein vollständiges Tutorial von VS-Code. Hier ist ein Video, dass trotzdem nützlich sein könnte 😉 <a href="https://www.youtube.com/watch?v=r5jNl-IOSZg">https://www.youtube.com/watch?v=r5jNl-IOSZg</a> </p>
-<h3 id="anmeldung-bei-github-oder-gitlab">Anmeldung bei gitHub oder gitLab</h3>
-<p>Um mit <em>git</em> Repositories zu verwalten braucht man natürlich auch Repositories. Hierfür muss ein gitHub oder gitLab Account erstellt werden. Beide Websites funktionieren gut jedoch ist gitHub die größere Plattform was heißt, dass es dort mehr Projekt von Anderen zufinden gibt.</p>
-<p>Für die Registrierung folge bitte diesem Link: <a href="https://github.com">https://github.com</a> (Nutzerdaten merken!!!)</p>
-<h3 id="einrichtung-username-e-mail">Einrichtung Username &amp; E-Mail</h3>
-<p>Um nun das <em>git</em> des Computers mit gitHub zu verbinden muss die <em>.gitconfig-Datei</em> bearbeitet werden. Dies geschiet mit dem Befehl <em>git config</em>.</p>
-<pre><code><span class="hljs-meta"># Befehl zum setzten des Nutzernamen</span>
-$ git config --<span class="hljs-keyword">global</span> user.name hanspeter
-
-<span class="hljs-meta"># Befehl zum setzen der E-Mail</span>
-$ git config --<span class="hljs-keyword">global</span> user.email hans<span class="hljs-symbol">@peter</span>.de
-</code></pre><p>Die ersten Schritte sind geschafft 😁 <em>git</em> ist jetzt berteit für das erste Projekt. Aber wie und welche Befehle kannst man dabei gebrauchen kann, dass kommt im nächsten Abschnitt.</p>
-<h2 id="2-grundlegende-begriffe-und-befehle-erstes-projekt">2. grundlegende Begriffe und Befehle + erstes Projekt</h2>
-<p>Um die Grundlegenden Begriffe und Befehle zu lernen kann man ein Projekt namens <em>first-contributions</em>. Hier wird einem beigebracht wie man mit Menschen aus der ganzen Welt zusammenarbeiten kannst.</p>
-<p>Hier ein Link für dieses Projekt: <a href="https://github.com/firstcontributions/first-contributions/tree/main">https://github.com/firstcontributions/first-contributions/tree/main</a> </p>
-<h3 id="ein-repository-forken-">ein Repository <em>&quot;forken&quot;</em></h3>
-<p>Als erstes muss man das Repository <em>&quot;forken&quot;</em> damit Änderungen daran vorgenommen werden können. Hierzu muss auf den Knopf namens Fork geklickt werden. </p>
-<p><img src="picture/forkPicture1.png" alt="Picture of where to Fork"></p>
-<p>Als nächstes auf Create Fork klicken. (alle anderen Einstellungen passen so wie sie sind) Dies sollte nun eine Kopie des Repositorys im persöhnlichen Account erstellen.</p>
-<p><img src="picture/forkPicture2.png" alt="picture of how to fork" width="400"/></p>
-<h3 id="das-projekt-auf-den-eigenen-computer-laden-git-clone-">das Projekt auf den eigenen Computer laden (<em>git clone</em>)</h3>
-<p>Jetzt wird das vorher <em>&quot;geforkte&quot;</em> Repository auf den Computer <em>geklont</em>. Dazu öffnet man das Repository in seinem Account und klickt auf den Knopf &quot;Code&quot;.</p>
-<p><img src="picture/clonePicture1.png" alt="picture of where to clone"></p>
-<p>Nun öffnet sich ein Fenster mit einre URL, diese muss kopiert werden.</p>
-<p><img src="picture/clonePicture2.png" alt="picture of how to clone"></p>
-<p>Um das Repositroy zu klonen gibt man jetzt den Befehl <em>git clone</em> gefolgt von der gerade kopierten URL.</p>
-<p>Dieser Befehl muss in <em>Commandline</em> oder <em>Cmd</em> eingegeben werden (Cmd öffnet sich in VS-Code mit Strg + Ö)</p>
-<pre><code><span class="hljs-comment"># git clone "URL für Repository"</span>
-$ git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://github.com/firstcontributions/first-contributions.git
-</code></pre><h3 id="erstellung-eines-branch-git-switch-c-">Erstellung eines Branch (<em>git switch -c</em>)</h3>
-<p>Bei der Verwendung von <em>git</em> erstellt man für jedes neue Feature einen Branch, den man danach wieder in den Branch <em>main</em> einbettet.</p>
-<p>Um einen Branch zu erstellen wird der Befehl <em>git switch</em> verwendet. Jedoch muss man sich dafür mit der <em>Commandline</em> innerhalb des innerhalb des Repositorys befinden. </p>
-<pre><code># <span class="hljs-keyword">cd</span> <span class="hljs-string">"Ordner wohin man möchte"</span>
-$ <span class="hljs-keyword">cd</span> <span class="hljs-keyword">first</span>-contributions
-</code></pre><p>Hans befindet sich im richtigen Ordner, da der Pfad den Namen seines Repositroys enthält.</p>
-<pre><code>C:<span class="hljs-symbol">\U</span>sers<span class="hljs-symbol">\h</span>ans<span class="hljs-symbol">\D</span>okumente<span class="hljs-symbol">\f</span>irst-contributions&gt;
-</code></pre><p>Um einen Branch zu erstellen brauch man natürlich auch einen sinnvollen Namen. Dieser sollte das Feature beschreiben, dass man in diesem umsetzen will.</p>
-<pre><code># git <span class="hljs-keyword">switch</span> -<span class="hljs-built_in">c</span> <span class="hljs-string">"Branchname"</span>
-$ git <span class="hljs-keyword">switch</span> -<span class="hljs-built_in">c</span> added_Hans_Peter
-</code></pre><p>Das &quot;-c&quot; steht hierfür &quot;create&quot;. Das heißt falls man zwischen mehreren Branches wechseln will, ohne einen neuen zu erstellen, lässt man &quot;-c&quot; einfach weg.</p>
-<p>Um zu sehen in welchem Branch man sich befindet nutzt den Befehl <em>git branch</em>. Hierbei hat man auch die Optionen -r oder -a (-r =&gt; zeigt remote Repositories &amp; -a =&gt; zeigt lokale und remote Repositories)</p>
-<pre><code>$ git <span class="hljs-keyword">branch
-</span>    * <span class="hljs-keyword">added_Hans_Peter
-</span>      master
-</code></pre><p>Super! Jetzt darf man seinen Namen in die Datei Contributers.md schreiben 😎</p>
-<h3 id="-nderungen-speichern-git-status-git-add-git-commit-">Änderungen speichern (<em>git status</em>, <em>git add</em> &amp; <em>git commit</em>)</h3>
-<p>Zum Speichern der Änderungen reicht <em>Strg + S</em> leider nicht. Als erstes werden mit <em>git status</em> die Änderungen ausgegeben.</p>
-<pre><code>$ git status
-    Changes not staged for <span class="hljs-keyword">commit</span>:
-      (<span class="hljs-keyword">use</span> <span class="hljs-string">"git add/rm &lt;file&gt;..."</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">update</span> what will be committed)
-      (<span class="hljs-keyword">use</span> <span class="hljs-string">"git restore &lt;file&gt;..."</span> <span class="hljs-keyword">to</span> discard changes <span class="hljs-keyword">in</span> working <span class="hljs-keyword">directory</span>)
-        modified: Contributors.md
-</code></pre><p>Als nächstes muss man alle veränderten Datein mit <em>git add</em> zum nächsten &quot;commit&quot; hinzufügen.</p>
-<pre><code># git <span class="hljs-keyword">add </span><span class="hljs-string">"Dateiname"</span>
-$ git <span class="hljs-keyword">add </span>Contributors.md
-</code></pre><p>Zuletzt müssen diese Änderungen abgegeben/commited werden. Hierzu wird der Befehl <em>git commit</em> verwendet. Jeder <em>commit</em> sollte eine Commit-Message enthalten. Diese wird mit -m hinzugefügt und beschreibt was seit dem letzten commit geändert wurde.</p>
-<pre><code><span class="hljs-meta"># git commit -m <span class="hljs-meta-string">"Commit-Message"</span></span>
-$ git commit -m <span class="hljs-string">"Add Hans to Contributors list"</span>
-</code></pre><p><img src="picture/commitMessages.png" alt="picture of commit Messages" width="400"/></p>
-<h3 id="-nderungen-hochladen-pushen-git-push-">Änderungen hochladen/pushen (<em>git push</em>)</h3>
-<p>Alle Änderungen, die bis jetzt vorgenommen wurden, waren local. Um nun das Projekt online zu sichern muss es auf gitHub hochgeladen/gepusht werden. Dafür wird der Befehl <em>git push</em> verwendet.</p>
-<pre><code># git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> <span class="hljs-string">"Branchname"</span>
-$ git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> added_Hans_Peter
-</code></pre><p>Origin steht beschreibt hier, dass der Branch zu einem Online-Repository gehört.</p>
-<h3 id="projekt-in-das-orginal-projekt-integrieren-pull-request-">Projekt in das Orginal-Projekt integrieren (<em>pull request</em>)</h3>
-<p>Jetzt, da alle Änderungen vorgenommen wurden kann man das Projekt wieder in das Orginalprojekt integrieren. Hierzu  navigiert man auf gitHub wieder zu seinem Projekt und erstellt eine sogenannte <em>pull request</em>. </p>
-<p><img src="picture/pullRepuest1.png" alt="where to pullRequest"></p>
-<p>Nun öffnet sich ein Fenster indem man den Namen seiner <em>pull request</em> und einen Kommentar eingibt. Beides sollte definieren was mit dieser <em>pull request</em> erreichent werden soll.</p>
-<p><img src="picture/pullRequest2.png" alt="comment for pullRequest"></p>
-<p>Der Verwalter des Projekts muss nun die <em>pull request</em> annehmen. Nachdem er den Fork annimmt wird der Text, den man vorhin eingetragen hat, in <em>Contributors.md</em> angezeigt.</p>
-<h2 id="4-n-tzliches-wissen">4. nützliches Wissen</h2>
-<h3 id="wiederherstellung-einer-bestimmten-version-des-projekts">Wiederherstellung einer bestimmten Version des Projekts</h3>
-<p>Die Wiederherstellung einer füheren Version des Projekts kann ganz einfach mit der Erweiterung <em>gitLense für VS-Code</em> erreichen.</p>
-<p>Nach der Installation sollte ein neues Icon in der rechten Leiste erscheinen, welches nach ein neues Fenster in der rechten Spalte öffnet. Hier kann man den Reiter Commit-Graph wählen, welches wieder ein Fenster aufmacht in dem alle <em>Commits</em> gezeigt werden. Nun wählt man lediglich den Commit zu dem man schauen möchte aus und klickt die drei Punkte. In diesem Fenster wählt man <em>Switch to Commit</em> um mit dem <em>HEAD</em> (der Stand der in VS-Code angezeigt wird) in diesn Commit zu wechseln.</p>
-<p><img src="picture/restorePicture1.png" alt="picture of commit Messages" width="600"/></p>
-<p>Um nun das Projekt auf diesen Stand zurück zusetzten, wählt man wieder die drei Punkte aber jetzt anstelle von <em>Switch to Commit</em>, <em>Rebase to Commit</em> dies setzt den Branch <em>master</em> auf den Stand dieses Commits. </p>
-<p><img src="picture/restorePicture2.png" alt="picture of commit Messages" width="600"/></p>
-<h3 id="mergen-von-zwei-branchen-mit-einem-diff-tool">Mergen von zwei Branchen mit einem diff-Tool</h3>
-<p>Um VS-Code als diff-Tool zu verwenden muss man die .gitconfig Datei bearbeiten.</p>
-<pre><code><span class="hljs-comment"># Befehl um .gitconfig aufzurufen</span>
-$ git config <span class="hljs-comment">--global -e</span>
-</code></pre><p>In diese Datei müssen folgenden Zeilen Code hinzugefügt werden: </p>
-<pre><code>[diff]
-  tool = vscode
-[difftool <span class="hljs-string">"vscode"</span>]
-  <span class="hljs-keyword">cmd</span><span class="bash"> = code --wait --diff <span class="hljs-variable">$LOCAL</span> <span class="hljs-variable">$REMOTE</span>
-</span>[merge]
-  tool = vscode
-[mergetool <span class="hljs-string">"vscode"</span>]
-  <span class="hljs-keyword">cmd</span><span class="bash"> = code --wait <span class="hljs-variable">$MERGED</span></span>
-</code></pre><p>Man kann jetzt zwei Branches <em>mergen</em> in dem man mit <em>git switch</em> zu dem Branch navigiert in den der andere Branch hinein gemerged werden soll. Als nächstes kann mit <em>Strg + Shift + P</em> nach dem Command <em>&quot;Git: Merge Branch&quot;</em> nun muss man lediglich den zweiten Branch auswählen.</p>
-<p>Falls während dem Merge ein Widersprüche auftreten können dieses mit dem in VS-Code eingebautem <em>diff-Tool</em> gelöst werden. In diesem Tool kann gewählt werden welche Version des Codes genommen werden soll.</p>
-<h3 id="integration-in-vs-code">Integration in VS-Code</h3>
-<p>In VS-Code kann man auch ohne <em>Cmd</em> Änderungen <em>adden, commiten und pushen</em>. Im Fenster <em>Source Control</em> kann mit dem Plus-Symbol sozusagen der Befehl <em>git add</em> ausgeführt werden. Mit dem Commit-Knopf können dann alle so hinzugefügten Änderungen <em>commited</em> werden. Nachdem alles so gespeichert wured kann mit --- das Online-Repository auf den neusten Stand gebracht werden.</p>
-<h3 id="nicht-alles-hochladen-gitignore">nicht alles Hochladen -&gt; .gitignore</h3>
-<p>Mit einer .gitignore Datei kann können bestimmte Datein bestimmt werden, die <em>git</em> nicht tracken soll und somit auch nicht bei <em>Commits</em> mitnehmen soll. Dies sind Dateien die nicht für die öffentlichkeit bestimmt sind und auch nicht auf gitHub landen sollten. Ein beispiel für solche Datein wären welche, die SSH-Keys, die für jede Person unteschielich sind, enthalten.</p>
-<p>Ein Beispiel für eine .gitignore Datei wäre: </p>
-<pre><code><span class="hljs-comment"># Logs</span>
-<span class="hljs-attribute">logs</span>
-<span class="hljs-regexp">*.log</span>
-npm-<span class="hljs-literal">debug</span>.log*
-yarn-<span class="hljs-literal">debug</span>.log*
-yarn-<span class="hljs-literal">error</span>.log*
-pnpm-<span class="hljs-literal">debug</span>.log*
-lerna-<span class="hljs-literal">debug</span>.log*
-
-node_modules
-dist
-dist-ssr
-<span class="hljs-regexp">*.local</span>
-
-<span class="hljs-comment"># Editor directories and files</span>
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-<span class="hljs-regexp">*.suo</span>
-<span class="hljs-regexp">*.ntvs</span>*
-<span class="hljs-regexp">*.njsproj</span>
-<span class="hljs-regexp">*.sln</span>
-<span class="hljs-regexp">*.sw</span>?
-</code></pre>># Befehl um .gitconfig aufzurufen</span>
-$ git config <span class="hljs-comment">--global -e</span>
-</code></pre>
-<p>In diese Datei müssen folgenden Zeilen Code hinzugefügt werden:</p>
-<pre><code>[diff]
-  tool = vscode
-[difftool <span class="hljs-string">"vscode"</span>]
-  <span class="hljs-keyword">cmd</span><span class="bash"> = code --wait --diff <span class="hljs-variable">$LOCAL</span> <span class="hljs-variable">$REMOTE</span>
-</span>[merge]
-  tool = vscode
-[mergetool <span class="hljs-string">"vscode"</span>]
-  <span class="hljs-keyword">cmd</span><span class="bash"> = code --wait <span class="hljs-variable">$MERGED</span></span>
-</code></pre>
-<p>
-  Man kann jetzt zwei Branches <em>mergen</em> in dem man mit
-  <em>git switch</em> zu dem Branch navigiert in den der andere Branch hinein
-  gemerged werden soll. Als nächstes kann mit <em>Strg + Shift + P</em> nach dem
-  Command <em>&quot;Git: Merge Branch&quot;</em> nun muss man lediglich den
-  zweiten Branch auswählen.
-</p>
-<p>
-  Falls während dem Merge ein Widersprüche auftreten können dieses mit dem in
-  VS-Code eingebautem <em>diff-Tool</em> gelöst werden. In diesem Tool kann
-  gewählt werden welche Version des Codes genommen werden soll.
-</p>
-<h3 id="integration-in-vs-code">Integration in VS-Code</h3>
-<p>
-  In VS-Code kann man auch ohne <em>Cmd</em> Änderungen
-  <em>adden, commiten und pushen</em>. Im Fenster <em>Source Control</em> kann
-  mit dem Plus-Symbol sozusagen der Befehl <em>git add</em> ausgeführt werden.
-  Mit dem Commit-Knopf können dann alle so hinzugefügten Änderungen
-  <em>commited</em> werden. Nachdem alles so gespeichert wured kann mit --- das
-  Online-Repository auf den neusten Stand gebracht werden.
-</p>
-<h3 id="nicht-alles-hochladen-gitignore">
-  nicht alles Hochladen -&gt; .gitignore
-</h3>
-<p>
-  Mit einer .gitignore Datei kann können bestimmte Datein bestimmt werden, die
-  <em>git</em> nicht tracken soll und somit auch nicht bei
-  <em>Commits</em> mitnehmen soll. Dies sind Dateien die nicht für die
-  öffentlichkeit bestimmt sind und auch nicht auf gitHub landen sollten. Ein
-  beispiel für solche Datein wären welche, die SSH-Keys, die für jede Person
-  unteschielich sind, enthalten.
-</p>
-<p>Ein Beispiel für eine .gitignore Datei wäre:</p>
-<pre><code><span class="hljs-comment"># Logs</span>
-<span class="hljs-attribute">logs</span>
-<span class="hljs-regexp">*.log</span>
-npm-<span class="hljs-literal">debug</span>.log*
-yarn-<span class="hljs-literal">debug</span>.log*
-yarn-<span class="hljs-literal">error</span>.log*
-pnpm-<span class="hljs-literal">debug</span>.log*
-lerna-<span class="hljs-literal">debug</span>.log*
-
-node_modules
-dist
-dist-ssr
-<span class="hljs-regexp">*.local</span>
-
-<span class="hljs-comment"># Editor directories and files</span>
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-<span class="hljs-regexp">*.suo</span>
-<span class="hljs-regexp">*.ntvs</span>*
-<span class="hljs-regexp">*.njsproj</span>
-<span class="hljs-regexp">*.sln</span>
-<span class="hljs-regexp">*.sw</span>?
-</code></pre>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" />
+  <title>git Tutorial</title>
+</head>
+<body>
+  <h1 id="versionsverwaltung-der-zukunft-beispiele-mit-git">
+    Versionsverwaltung der Zukunft: Beispiele mit git
+  </h1>
+  <h2 id="1-installation-und-einrichtung">1. Installation und Einrichtung</h2>
+  <h3 id="installation-der-programme">Installation der Programme</h3>
+  <p>
+    Als erstes muss <em>git</em> natürlich installiert werden. Dafür müssen die
+    Download-Files von
+    <a href="https://git-scm.com/download/win"
+      >https://git-scm.com/download/win</a
+    >
+    heruntergeladen werden. Der Link führt zum Download für die Windows Version
+    von <em>git</em>, hier kann die neuste Version herunterladen.
+  </p>
+  <p>
+    Um nun <em>git</em> zu installieren muss man die gerade heruntergeladene .exe
+    Datei die ausführen. Nun wird dir ein Dialogfenster angezeigt, das Optionen
+    zur Installation von <em>git</em> enthält. Die Voreinstellungen passen so wie
+    sie sind, d.h. es kann einfach durch geklickt werden.
+  </p>
+  <p>
+    Natürchlich braucht man auch einen Code-Editor. Im folgenden wird Visual
+    Studio Code genutzt, jedoch is in diesem Tutorial leider keine Zeit für ein
+    vollständiges Tutorial von VS-Code. Hier ist ein Video, dass trotzdem nützlich
+    sein könnte 😉
+    <a href="https://www.youtube.com/watch?v=r5jNl-IOSZg"
+      >https://www.youtube.com/watch?v=r5jNl-IOSZg</a
+    >
+  </p>
+  <h3 id="anmeldung-bei-github-oder-gitlab">Anmeldung bei gitHub oder gitLab</h3>
+  <p>
+    Um mit <em>git</em> Repositories zu verwalten braucht man natürlich auch
+    Repositories. Hierfür muss ein gitHub oder gitLab Account erstellt werden.
+    Beide Websites funktionieren gut jedoch ist gitHub die größere Plattform was
+    heißt, dass es dort mehr Projekt von Anderen zufinden gibt.
+  </p>
+  <p>
+    Für die Registrierung folge bitte diesem Link:
+    <a href="https://github.com">https://github.com</a> (Nutzerdaten merken!!!)
+  </p>
+  <h3 id="einrichtung-username-e-mail">Einrichtung Username &amp; E-Mail</h3>
+  <p>
+    Um nun das <em>git</em> des Computers mit gitHub zu verbinden muss die
+    <em>.gitconfig-Datei</em> bearbeitet werden. Dies geschiet mit dem Befehl
+    <em>git config</em>.
+  </p>
+  <pre><code><span class="hljs-meta"># Befehl zum setzten des Nutzernamen</span>
+  $ git config --<span class="hljs-keyword">global</span> user.name hanspeter
+  
+  <span class="hljs-meta"># Befehl zum setzen der E-Mail</span>
+  $ git config --<span class="hljs-keyword">global</span> user.email hans<span class="hljs-symbol">@peter</span>.de
+  </code></pre>
+  <p>
+    Die ersten Schritte sind geschafft 😁 <em>git</em> ist jetzt berteit für das
+    erste Projekt. Aber wie und welche Befehle kannst man dabei gebrauchen kann,
+    dass kommt im nächsten Abschnitt.
+  </p>
+  <h2 id="2-grundlegende-begriffe-und-befehle-erstes-projekt">
+    2. grundlegende Begriffe und Befehle + erstes Projekt
+  </h2>
+  <p>
+    Um die Grundlegenden Begriffe und Befehle zu lernen kann man ein Projekt
+    namens <em>first-contributions</em>. Hier wird einem beigebracht wie man mit
+    Menschen aus der ganzen Welt zusammenarbeiten kannst.
+  </p>
+  <p>
+    Hier ein Link für dieses Projekt:
+    <a href="https://github.com/firstcontributions/first-contributions/tree/main"
+      >https://github.com/firstcontributions/first-contributions/tree/main</a
+    >
+  </p>
+  <h3 id="ein-repository-forken-">ein Repository <em>&quot;forken&quot;</em></h3>
+  <p>
+    Als erstes muss man das Repository <em>&quot;forken&quot;</em> damit
+    Änderungen daran vorgenommen werden können. Hierzu muss auf den Knopf namens
+    Fork geklickt werden.
+  </p>
+  <p><img src="picture/forkPicture1.png" alt="Picture of where to Fork" /></p>
+  <p>
+    Als nächstes auf Create Fork klicken. (alle anderen Einstellungen passen so
+    wie sie sind) Dies sollte nun eine Kopie des Repositorys im persöhnlichen
+    Account erstellen.
+  </p>
+  <p>
+    <img
+      src="picture/forkPicture2.png"
+      alt="picture of how to fork"
+      width="400"
+    />
+  </p>
+  <h3 id="das-projekt-auf-den-eigenen-computer-laden-git-clone-">
+    das Projekt auf den eigenen Computer laden (<em>git clone</em>)
+  </h3>
+  <p>
+    Jetzt wird das vorher <em>&quot;geforkte&quot;</em> Repository auf den
+    Computer <em>geklont</em>. Dazu öffnet man das Repository in seinem Account
+    und klickt auf den Knopf &quot;Code&quot;.
+  </p>
+  <p><img src="picture/clonePicture1.png" alt="picture of where to clone" /></p>
+  <p>Nun öffnet sich ein Fenster mit einre URL, diese muss kopiert werden.</p>
+  <p><img src="picture/clonePicture2.png" alt="picture of how to clone" /></p>
+  <p>
+    Um das Repositroy zu klonen gibt man jetzt den Befehl
+    <em>git clone</em> gefolgt von der gerade kopierten URL.
+  </p>
+  <p>
+    Dieser Befehl muss in <em>Commandline</em> oder <em>Cmd</em> eingegeben werden
+    (Cmd öffnet sich in VS-Code mit Strg + Ö)
+  </p>
+  <pre><code><span class="hljs-comment"># git clone "URL für Repository"</span>
+  $ git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://github.com/firstcontributions/first-contributions.git
+  </code></pre>
+  <h3 id="erstellung-eines-branch-git-switch-c-">
+    Erstellung eines Branch (<em>git switch -c</em>)
+  </h3>
+  <p>
+    Bei der Verwendung von <em>git</em> erstellt man für jedes neue Feature einen
+    Branch, den man danach wieder in den Branch <em>main</em> einbettet.
+  </p>
+  <p>
+    Um einen Branch zu erstellen wird der Befehl <em>git switch</em> verwendet.
+    Jedoch muss man sich dafür mit der <em>Commandline</em> innerhalb des
+    innerhalb des Repositorys befinden.
+  </p>
+  <pre><code># <span class="hljs-keyword">cd</span> <span class="hljs-string">"Ordner wohin man möchte"</span>
+  $ <span class="hljs-keyword">cd</span> <span class="hljs-keyword">first</span>-contributions
+  </code></pre>
+  <p>
+    Hans befindet sich im richtigen Ordner, da der Pfad den Namen seines
+    Repositroys enthält.
+  </p>
+  <pre><code>C:<span class="hljs-symbol">\U</span>sers<span class="hljs-symbol">\h</span>ans<span class="hljs-symbol">\D</span>okumente<span class="hljs-symbol">\f</span>irst-contributions&gt;
+  </code></pre>
+  <p>
+    Um einen Branch zu erstellen brauch man natürlich auch einen sinnvollen Namen.
+    Dieser sollte das Feature beschreiben, dass man in diesem umsetzen will.
+  </p>
+  <pre><code># git <span class="hljs-keyword">switch</span> -<span class="hljs-built_in">c</span> <span class="hljs-string">"Branchname"</span>
+  $ git <span class="hljs-keyword">switch</span> -<span class="hljs-built_in">c</span> added_Hans_Peter
+  </code></pre>
+  <p>
+    Das &quot;-c&quot; steht hierfür &quot;create&quot;. Das heißt falls man
+    zwischen mehreren Branches wechseln will, ohne einen neuen zu erstellen, lässt
+    man &quot;-c&quot; einfach weg.
+  </p>
+  <p>
+    Um zu sehen in welchem Branch man sich befindet nutzt den Befehl
+    <em>git branch</em>. Hierbei hat man auch die Optionen -r oder -a (-r =&gt;
+    zeigt remote Repositories &amp; -a =&gt; zeigt lokale und remote Repositories)
+  </p>
+  <pre><code>$ git <span class="hljs-keyword">branch
+  </span>    * <span class="hljs-keyword">added_Hans_Peter
+  </span>      master
+  </code></pre>
+  <p>
+    Super! Jetzt darf man seinen Namen in die Datei Contributers.md schreiben 😎
+  </p>
+  <h3 id="-nderungen-speichern-git-status-git-add-git-commit-">
+    Änderungen speichern (<em>git status</em>, <em>git add</em> &amp;
+    <em>git commit</em>)
+  </h3>
+  <p>
+    Zum Speichern der Änderungen reicht <em>Strg + S</em> leider nicht. Als erstes
+    werden mit <em>git status</em> die Änderungen ausgegeben.
+  </p>
+  <pre><code>$ git status
+      Changes not staged for <span class="hljs-keyword">commit</span>:
+        (<span class="hljs-keyword">use</span> <span class="hljs-string">"git add/rm &lt;file&gt;..."</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">update</span> what will be committed)
+        (<span class="hljs-keyword">use</span> <span class="hljs-string">"git restore &lt;file&gt;..."</span> <span class="hljs-keyword">to</span> discard changes <span class="hljs-keyword">in</span> working <span class="hljs-keyword">directory</span>)
+          modified: Contributors.md
+  </code></pre>
+  <p>
+    Als nächstes muss man alle veränderten Datein mit <em>git add</em> zum
+    nächsten &quot;commit&quot; hinzufügen.
+  </p>
+  <pre><code># git <span class="hljs-keyword">add </span><span class="hljs-string">"Dateiname"</span>
+  $ git <span class="hljs-keyword">add </span>Contributors.md
+  </code></pre>
+  <p>
+    Zuletzt müssen diese Änderungen abgegeben/commited werden. Hierzu wird der
+    Befehl <em>git commit</em> verwendet. Jeder <em>commit</em> sollte eine
+    Commit-Message enthalten. Diese wird mit -m hinzugefügt und beschreibt was
+    seit dem letzten commit geändert wurde.
+  </p>
+  <pre><code><span class="hljs-meta"># git commit -m <span class="hljs-meta-string">"Commit-Message"</span></span>
+  $ git commit -m <span class="hljs-string">"Add Hans to Contributors list"</span>
+  </code></pre>
+  <p>
+    <img
+      src="picture/commitMessages.png"
+      alt="picture of commit Messages"
+      width="400"
+    />
+  </p>
+  <h3 id="-nderungen-hochladen-pushen-git-push-">
+    Änderungen hochladen/pushen (<em>git push</em>)
+  </h3>
+  <p>
+    Alle Änderungen, die bis jetzt vorgenommen wurden, waren local. Um nun das
+    Projekt online zu sichern muss es auf gitHub hochgeladen/gepusht werden. Dafür
+    wird der Befehl <em>git push</em> verwendet.
+  </p>
+  <pre><code># git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> <span class="hljs-string">"Branchname"</span>
+  $ git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> added_Hans_Peter
+  </code></pre>
+  <p>
+    Origin steht beschreibt hier, dass der Branch zu einem Online-Repository
+    gehört.
+  </p>
+  <h3 id="projekt-in-das-orginal-projekt-integrieren-pull-request-">
+    Projekt in das Orginal-Projekt integrieren (<em>pull request</em>)
+  </h3>
+  <p>
+    Jetzt, da alle Änderungen vorgenommen wurden kann man das Projekt wieder in
+    das Orginalprojekt integrieren. Hierzu navigiert man auf gitHub wieder zu
+    seinem Projekt und erstellt eine sogenannte <em>pull request</em>.
+  </p>
+  <p><img src="picture/pullRepuest1.png" alt="where to pullRequest" /></p>
+  <p>
+    Nun öffnet sich ein Fenster indem man den Namen seiner
+    <em>pull request</em> und einen Kommentar eingibt. Beides sollte definieren
+    was mit dieser <em>pull request</em> erreichent werden soll.
+  </p>
+  <p><img src="picture/pullRequest2.png" alt="comment for pullRequest" /></p>
+  <p>
+    Der Verwalter des Projekts muss nun die <em>pull request</em> annehmen.
+    Nachdem er den Fork annimmt wird der Text, den man vorhin eingetragen hat, in
+    <em>Contributors.md</em> angezeigt.
+  </p>
+  <h2 id="4-n-tzliches-wissen">4. nützliches Wissen</h2>
+  <h3 id="wiederherstellung-einer-bestimmten-version-des-projekts">
+    Wiederherstellung einer bestimmten Version des Projekts
+  </h3>
+  <p>
+    Die Wiederherstellung einer füheren Version des Projekts kann ganz einfach mit
+    der Erweiterung <em>gitLense für VS-Code</em> erreichen.
+  </p>
+  <p>
+    Nach der Installation sollte ein neues Icon in der rechten Leiste erscheinen,
+    welches nach ein neues Fenster in der rechten Spalte öffnet. Hier kann man den
+    Reiter Commit-Graph wählen, welches wieder ein Fenster aufmacht in dem alle
+    <em>Commits</em> gezeigt werden. Nun wählt man lediglich den Commit zu dem man
+    schauen möchte aus und klickt die drei Punkte. In diesem Fenster wählt man
+    <em>Switch to Commit</em> um mit dem <em>HEAD</em> (der Stand der in VS-Code
+    angezeigt wird) in diesn Commit zu wechseln.
+  </p>
+  <p>
+    <img
+      src="picture/restorePicture1.png"
+      alt="picture of commit Messages"
+      width="600"
+    />
+  </p>
+  <p>
+    Um nun das Projekt auf diesen Stand zurück zusetzten, wählt man wieder die
+    drei Punkte aber jetzt anstelle von <em>Switch to Commit</em>,
+    <em>Rebase to Commit</em> dies setzt den Branch <em>master</em> auf den Stand
+    dieses Commits.
+  </p>
+  <p>
+    <img
+      src="picture/restorePicture2.png"
+      alt="picture of commit Messages"
+      width="600"
+    />
+  </p>
+  <h3 id="mergen-von-zwei-branchen-mit-einem-diff-tool">
+    Mergen von zwei Branchen mit einem diff-Tool
+  </h3>
+  <p>
+    Um VS-Code als diff-Tool zu verwenden muss man die .gitconfig Datei
+    bearbeiten.
+  </p>
+  <pre><code><span class="hljs-comment"<h1 id="versionsverwaltung-der-zukunft-beispiele-mit-git">Versionsverwaltung der Zukunft: Beispiele mit git</h1>
+  <h2 id="1-installation-und-einrichtung">1. Installation und Einrichtung</h2>
+  <h3 id="installation-der-programme">Installation der Programme</h3>
+  <p>Als erstes muss <em>git</em> natürlich installiert werden. Dafür müssen die Download-Files von <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a> heruntergeladen werden.
+  Der Link führt zum Download für die Windows Version von <em>git</em>, hier kann die neuste Version herunterladen.</p>
+  <p>Um nun <em>git</em> zu installieren muss man die gerade heruntergeladene .exe Datei die ausführen. Nun wird dir ein Dialogfenster angezeigt, das Optionen zur Installation von <em>git</em> enthält. Die Voreinstellungen passen so wie sie sind, d.h. es kann einfach durch geklickt werden.</p>
+  <p>Natürchlich braucht man auch einen Code-Editor. Im folgenden wird Visual Studio Code genutzt, jedoch is in diesem Tutorial leider keine Zeit für ein vollständiges Tutorial von VS-Code. Hier ist ein Video, dass trotzdem nützlich sein könnte 😉 <a href="https://www.youtube.com/watch?v=r5jNl-IOSZg">https://www.youtube.com/watch?v=r5jNl-IOSZg</a> </p>
+  <h3 id="anmeldung-bei-github-oder-gitlab">Anmeldung bei gitHub oder gitLab</h3>
+  <p>Um mit <em>git</em> Repositories zu verwalten braucht man natürlich auch Repositories. Hierfür muss ein gitHub oder gitLab Account erstellt werden. Beide Websites funktionieren gut jedoch ist gitHub die größere Plattform was heißt, dass es dort mehr Projekt von Anderen zufinden gibt.</p>
+  <p>Für die Registrierung folge bitte diesem Link: <a href="https://github.com">https://github.com</a> (Nutzerdaten merken!!!)</p>
+  <h3 id="einrichtung-username-e-mail">Einrichtung Username &amp; E-Mail</h3>
+  <p>Um nun das <em>git</em> des Computers mit gitHub zu verbinden muss die <em>.gitconfig-Datei</em> bearbeitet werden. Dies geschiet mit dem Befehl <em>git config</em>.</p>
+  <pre><code><span class="hljs-meta"># Befehl zum setzten des Nutzernamen</span>
+  $ git config --<span class="hljs-keyword">global</span> user.name hanspeter
+  
+  <span class="hljs-meta"># Befehl zum setzen der E-Mail</span>
+  $ git config --<span class="hljs-keyword">global</span> user.email hans<span class="hljs-symbol">@peter</span>.de
+  </code></pre><p>Die ersten Schritte sind geschafft 😁 <em>git</em> ist jetzt berteit für das erste Projekt. Aber wie und welche Befehle kannst man dabei gebrauchen kann, dass kommt im nächsten Abschnitt.</p>
+  <h2 id="2-grundlegende-begriffe-und-befehle-erstes-projekt">2. grundlegende Begriffe und Befehle + erstes Projekt</h2>
+  <p>Um die Grundlegenden Begriffe und Befehle zu lernen kann man ein Projekt namens <em>first-contributions</em>. Hier wird einem beigebracht wie man mit Menschen aus der ganzen Welt zusammenarbeiten kannst.</p>
+  <p>Hier ein Link für dieses Projekt: <a href="https://github.com/firstcontributions/first-contributions/tree/main">https://github.com/firstcontributions/first-contributions/tree/main</a> </p>
+  <h3 id="ein-repository-forken-">ein Repository <em>&quot;forken&quot;</em></h3>
+  <p>Als erstes muss man das Repository <em>&quot;forken&quot;</em> damit Änderungen daran vorgenommen werden können. Hierzu muss auf den Knopf namens Fork geklickt werden. </p>
+  <p><img src="picture/forkPicture1.png" alt="Picture of where to Fork"></p>
+  <p>Als nächstes auf Create Fork klicken. (alle anderen Einstellungen passen so wie sie sind) Dies sollte nun eine Kopie des Repositorys im persöhnlichen Account erstellen.</p>
+  <p><img src="picture/forkPicture2.png" alt="picture of how to fork" width="400"/></p>
+  <h3 id="das-projekt-auf-den-eigenen-computer-laden-git-clone-">das Projekt auf den eigenen Computer laden (<em>git clone</em>)</h3>
+  <p>Jetzt wird das vorher <em>&quot;geforkte&quot;</em> Repository auf den Computer <em>geklont</em>. Dazu öffnet man das Repository in seinem Account und klickt auf den Knopf &quot;Code&quot;.</p>
+  <p><img src="picture/clonePicture1.png" alt="picture of where to clone"></p>
+  <p>Nun öffnet sich ein Fenster mit einre URL, diese muss kopiert werden.</p>
+  <p><img src="picture/clonePicture2.png" alt="picture of how to clone"></p>
+  <p>Um das Repositroy zu klonen gibt man jetzt den Befehl <em>git clone</em> gefolgt von der gerade kopierten URL.</p>
+  <p>Dieser Befehl muss in <em>Commandline</em> oder <em>Cmd</em> eingegeben werden (Cmd öffnet sich in VS-Code mit Strg + Ö)</p>
+  <pre><code><span class="hljs-comment"># git clone "URL für Repository"</span>
+  $ git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://github.com/firstcontributions/first-contributions.git
+  </code></pre><h3 id="erstellung-eines-branch-git-switch-c-">Erstellung eines Branch (<em>git switch -c</em>)</h3>
+  <p>Bei der Verwendung von <em>git</em> erstellt man für jedes neue Feature einen Branch, den man danach wieder in den Branch <em>main</em> einbettet.</p>
+  <p>Um einen Branch zu erstellen wird der Befehl <em>git switch</em> verwendet. Jedoch muss man sich dafür mit der <em>Commandline</em> innerhalb des innerhalb des Repositorys befinden. </p>
+  <pre><code># <span class="hljs-keyword">cd</span> <span class="hljs-string">"Ordner wohin man möchte"</span>
+  $ <span class="hljs-keyword">cd</span> <span class="hljs-keyword">first</span>-contributions
+  </code></pre><p>Hans befindet sich im richtigen Ordner, da der Pfad den Namen seines Repositroys enthält.</p>
+  <pre><code>C:<span class="hljs-symbol">\U</span>sers<span class="hljs-symbol">\h</span>ans<span class="hljs-symbol">\D</span>okumente<span class="hljs-symbol">\f</span>irst-contributions&gt;
+  </code></pre><p>Um einen Branch zu erstellen brauch man natürlich auch einen sinnvollen Namen. Dieser sollte das Feature beschreiben, dass man in diesem umsetzen will.</p>
+  <pre><code># git <span class="hljs-keyword">switch</span> -<span class="hljs-built_in">c</span> <span class="hljs-string">"Branchname"</span>
+  $ git <span class="hljs-keyword">switch</span> -<span class="hljs-built_in">c</span> added_Hans_Peter
+  </code></pre><p>Das &quot;-c&quot; steht hierfür &quot;create&quot;. Das heißt falls man zwischen mehreren Branches wechseln will, ohne einen neuen zu erstellen, lässt man &quot;-c&quot; einfach weg.</p>
+  <p>Um zu sehen in welchem Branch man sich befindet nutzt den Befehl <em>git branch</em>. Hierbei hat man auch die Optionen -r oder -a (-r =&gt; zeigt remote Repositories &amp; -a =&gt; zeigt lokale und remote Repositories)</p>
+  <pre><code>$ git <span class="hljs-keyword">branch
+  </span>    * <span class="hljs-keyword">added_Hans_Peter
+  </span>      master
+  </code></pre><p>Super! Jetzt darf man seinen Namen in die Datei Contributers.md schreiben 😎</p>
+  <h3 id="-nderungen-speichern-git-status-git-add-git-commit-">Änderungen speichern (<em>git status</em>, <em>git add</em> &amp; <em>git commit</em>)</h3>
+  <p>Zum Speichern der Änderungen reicht <em>Strg + S</em> leider nicht. Als erstes werden mit <em>git status</em> die Änderungen ausgegeben.</p>
+  <pre><code>$ git status
+      Changes not staged for <span class="hljs-keyword">commit</span>:
+        (<span class="hljs-keyword">use</span> <span class="hljs-string">"git add/rm &lt;file&gt;..."</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">update</span> what will be committed)
+        (<span class="hljs-keyword">use</span> <span class="hljs-string">"git restore &lt;file&gt;..."</span> <span class="hljs-keyword">to</span> discard changes <span class="hljs-keyword">in</span> working <span class="hljs-keyword">directory</span>)
+          modified: Contributors.md
+  </code></pre><p>Als nächstes muss man alle veränderten Datein mit <em>git add</em> zum nächsten &quot;commit&quot; hinzufügen.</p>
+  <pre><code># git <span class="hljs-keyword">add </span><span class="hljs-string">"Dateiname"</span>
+  $ git <span class="hljs-keyword">add </span>Contributors.md
+  </code></pre><p>Zuletzt müssen diese Änderungen abgegeben/commited werden. Hierzu wird der Befehl <em>git commit</em> verwendet. Jeder <em>commit</em> sollte eine Commit-Message enthalten. Diese wird mit -m hinzugefügt und beschreibt was seit dem letzten commit geändert wurde.</p>
+  <pre><code><span class="hljs-meta"># git commit -m <span class="hljs-meta-string">"Commit-Message"</span></span>
+  $ git commit -m <span class="hljs-string">"Add Hans to Contributors list"</span>
+  </code></pre><p><img src="picture/commitMessages.png" alt="picture of commit Messages" width="400"/></p>
+  <h3 id="-nderungen-hochladen-pushen-git-push-">Änderungen hochladen/pushen (<em>git push</em>)</h3>
+  <p>Alle Änderungen, die bis jetzt vorgenommen wurden, waren local. Um nun das Projekt online zu sichern muss es auf gitHub hochgeladen/gepusht werden. Dafür wird der Befehl <em>git push</em> verwendet.</p>
+  <pre><code># git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> <span class="hljs-string">"Branchname"</span>
+  $ git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> added_Hans_Peter
+  </code></pre><p>Origin steht beschreibt hier, dass der Branch zu einem Online-Repository gehört.</p>
+  <h3 id="projekt-in-das-orginal-projekt-integrieren-pull-request-">Projekt in das Orginal-Projekt integrieren (<em>pull request</em>)</h3>
+  <p>Jetzt, da alle Änderungen vorgenommen wurden kann man das Projekt wieder in das Orginalprojekt integrieren. Hierzu  navigiert man auf gitHub wieder zu seinem Projekt und erstellt eine sogenannte <em>pull request</em>. </p>
+  <p><img src="picture/pullRepuest1.png" alt="where to pullRequest"></p>
+  <p>Nun öffnet sich ein Fenster indem man den Namen seiner <em>pull request</em> und einen Kommentar eingibt. Beides sollte definieren was mit dieser <em>pull request</em> erreichent werden soll.</p>
+  <p><img src="picture/pullRequest2.png" alt="comment for pullRequest"></p>
+  <p>Der Verwalter des Projekts muss nun die <em>pull request</em> annehmen. Nachdem er den Fork annimmt wird der Text, den man vorhin eingetragen hat, in <em>Contributors.md</em> angezeigt.</p>
+  <h2 id="4-n-tzliches-wissen">4. nützliches Wissen</h2>
+  <h3 id="wiederherstellung-einer-bestimmten-version-des-projekts">Wiederherstellung einer bestimmten Version des Projekts</h3>
+  <p>Die Wiederherstellung einer füheren Version des Projekts kann ganz einfach mit der Erweiterung <em>gitLense für VS-Code</em> erreichen.</p>
+  <p>Nach der Installation sollte ein neues Icon in der rechten Leiste erscheinen, welches nach ein neues Fenster in der rechten Spalte öffnet. Hier kann man den Reiter Commit-Graph wählen, welches wieder ein Fenster aufmacht in dem alle <em>Commits</em> gezeigt werden. Nun wählt man lediglich den Commit zu dem man schauen möchte aus und klickt die drei Punkte. In diesem Fenster wählt man <em>Switch to Commit</em> um mit dem <em>HEAD</em> (der Stand der in VS-Code angezeigt wird) in diesn Commit zu wechseln.</p>
+  <p><img src="picture/restorePicture1.png" alt="picture of commit Messages" width="600"/></p>
+  <p>Um nun das Projekt auf diesen Stand zurück zusetzten, wählt man wieder die drei Punkte aber jetzt anstelle von <em>Switch to Commit</em>, <em>Rebase to Commit</em> dies setzt den Branch <em>master</em> auf den Stand dieses Commits. </p>
+  <p><img src="picture/restorePicture2.png" alt="picture of commit Messages" width="600"/></p>
+  <h3 id="mergen-von-zwei-branchen-mit-einem-diff-tool">Mergen von zwei Branchen mit einem diff-Tool</h3>
+  <p>Um VS-Code als diff-Tool zu verwenden muss man die .gitconfig Datei bearbeiten.</p>
+  <pre><code><span class="hljs-comment"># Befehl um .gitconfig aufzurufen</span>
+  $ git config <span class="hljs-comment">--global -e</span>
+  </code></pre><p>In diese Datei müssen folgenden Zeilen Code hinzugefügt werden: </p>
+  <pre><code>[diff]
+    tool = vscode
+  [difftool <span class="hljs-string">"vscode"</span>]
+    <span class="hljs-keyword">cmd</span><span class="bash"> = code --wait --diff <span class="hljs-variable">$LOCAL</span> <span class="hljs-variable">$REMOTE</span>
+  </span>[merge]
+    tool = vscode
+  [mergetool <span class="hljs-string">"vscode"</span>]
+    <span class="hljs-keyword">cmd</span><span class="bash"> = code --wait <span class="hljs-variable">$MERGED</span></span>
+  </code></pre><p>Man kann jetzt zwei Branches <em>mergen</em> in dem man mit <em>git switch</em> zu dem Branch navigiert in den der andere Branch hinein gemerged werden soll. Als nächstes kann mit <em>Strg + Shift + P</em> nach dem Command <em>&quot;Git: Merge Branch&quot;</em> nun muss man lediglich den zweiten Branch auswählen.</p>
+  <p>Falls während dem Merge ein Widersprüche auftreten können dieses mit dem in VS-Code eingebautem <em>diff-Tool</em> gelöst werden. In diesem Tool kann gewählt werden welche Version des Codes genommen werden soll.</p>
+  <h3 id="integration-in-vs-code">Integration in VS-Code</h3>
+  <p>In VS-Code kann man auch ohne <em>Cmd</em> Änderungen <em>adden, commiten und pushen</em>. Im Fenster <em>Source Control</em> kann mit dem Plus-Symbol sozusagen der Befehl <em>git add</em> ausgeführt werden. Mit dem Commit-Knopf können dann alle so hinzugefügten Änderungen <em>commited</em> werden. Nachdem alles so gespeichert wured kann mit --- das Online-Repository auf den neusten Stand gebracht werden.</p>
+  <h3 id="nicht-alles-hochladen-gitignore">nicht alles Hochladen -&gt; .gitignore</h3>
+  <p>Mit einer .gitignore Datei kann können bestimmte Datein bestimmt werden, die <em>git</em> nicht tracken soll und somit auch nicht bei <em>Commits</em> mitnehmen soll. Dies sind Dateien die nicht für die öffentlichkeit bestimmt sind und auch nicht auf gitHub landen sollten. Ein beispiel für solche Datein wären welche, die SSH-Keys, die für jede Person unteschielich sind, enthalten.</p>
+  <p>Ein Beispiel für eine .gitignore Datei wäre: </p>
+  <pre><code><span class="hljs-comment"># Logs</span>
+  <span class="hljs-attribute">logs</span>
+  <span class="hljs-regexp">*.log</span>
+  npm-<span class="hljs-literal">debug</span>.log*
+  yarn-<span class="hljs-literal">debug</span>.log*
+  yarn-<span class="hljs-literal">error</span>.log*
+  pnpm-<span class="hljs-literal">debug</span>.log*
+  lerna-<span class="hljs-literal">debug</span>.log*
+  
+  node_modules
+  dist
+  dist-ssr
+  <span class="hljs-regexp">*.local</span>
+  
+  <span class="hljs-comment"># Editor directories and files</span>
+  .vscode/*
+  !.vscode/extensions.json
+  .idea
+  .DS_Store
+  <span class="hljs-regexp">*.suo</span>
+  <span class="hljs-regexp">*.ntvs</span>*
+  <span class="hljs-regexp">*.njsproj</span>
+  <span class="hljs-regexp">*.sln</span>
+  <span class="hljs-regexp">*.sw</span>?
+  </code></pre>># Befehl um .gitconfig aufzurufen</span>
+  $ git config <span class="hljs-comment">--global -e</span>
+  </code></pre>
+  <p>In diese Datei müssen folgenden Zeilen Code hinzugefügt werden:</p>
+  <pre><code>[diff]
+    tool = vscode
+  [difftool <span class="hljs-string">"vscode"</span>]
+    <span class="hljs-keyword">cmd</span><span class="bash"> = code --wait --diff <span class="hljs-variable">$LOCAL</span> <span class="hljs-variable">$REMOTE</span>
+  </span>[merge]
+    tool = vscode
+  [mergetool <span class="hljs-string">"vscode"</span>]
+    <span class="hljs-keyword">cmd</span><span class="bash"> = code --wait <span class="hljs-variable">$MERGED</span></span>
+  </code></pre>
+  <p>
+    Man kann jetzt zwei Branches <em>mergen</em> in dem man mit
+    <em>git switch</em> zu dem Branch navigiert in den der andere Branch hinein
+    gemerged werden soll. Als nächstes kann mit <em>Strg + Shift + P</em> nach dem
+    Command <em>&quot;Git: Merge Branch&quot;</em> nun muss man lediglich den
+    zweiten Branch auswählen.
+  </p>
+  <p>
+    Falls während dem Merge ein Widersprüche auftreten können dieses mit dem in
+    VS-Code eingebautem <em>diff-Tool</em> gelöst werden. In diesem Tool kann
+    gewählt werden welche Version des Codes genommen werden soll.
+  </p>
+  <h3 id="integration-in-vs-code">Integration in VS-Code</h3>
+  <p>
+    In VS-Code kann man auch ohne <em>Cmd</em> Änderungen
+    <em>adden, commiten und pushen</em>. Im Fenster <em>Source Control</em> kann
+    mit dem Plus-Symbol sozusagen der Befehl <em>git add</em> ausgeführt werden.
+    Mit dem Commit-Knopf können dann alle so hinzugefügten Änderungen
+    <em>commited</em> werden. Nachdem alles so gespeichert wured kann mit --- das
+    Online-Repository auf den neusten Stand gebracht werden.
+  </p>
+  <h3 id="nicht-alles-hochladen-gitignore">
+    nicht alles Hochladen -&gt; .gitignore
+  </h3>
+  <p>
+    Mit einer .gitignore Datei kann können bestimmte Datein bestimmt werden, die
+    <em>git</em> nicht tracken soll und somit auch nicht bei
+    <em>Commits</em> mitnehmen soll. Dies sind Dateien die nicht für die
+    öffentlichkeit bestimmt sind und auch nicht auf gitHub landen sollten. Ein
+    beispiel für solche Datein wären welche, die SSH-Keys, die für jede Person
+    unteschielich sind, enthalten.
+  </p>
+  <p>Ein Beispiel für eine .gitignore Datei wäre:</p>
+  <pre><code><span class="hljs-comment"># Logs</span>
+  <span class="hljs-attribute">logs</span>
+  <span class="hljs-regexp">*.log</span>
+  npm-<span class="hljs-literal">debug</span>.log*
+  yarn-<span class="hljs-literal">debug</span>.log*
+  yarn-<span class="hljs-literal">error</span>.log*
+  pnpm-<span class="hljs-literal">debug</span>.log*
+  lerna-<span class="hljs-literal">debug</span>.log*
+  
+  node_modules
+  dist
+  dist-ssr
+  <span class="hljs-regexp">*.local</span>
+  
+  <span class="hljs-comment"># Editor directories and files</span>
+  .vscode/*
+  !.vscode/extensions.json
+  .idea
+  .DS_Store
+  <span class="hljs-regexp">*.suo</span>
+  <span class="hljs-regexp">*.ntvs</span>*
+  <span class="hljs-regexp">*.njsproj</span>
+  <span class="hljs-regexp">*.sln</span>
+  <span class="hljs-regexp">*.sw</span>?
+  </code></pre>
+</body>
+</html>
