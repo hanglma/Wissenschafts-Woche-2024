@@ -7,4 +7,4 @@ _Git_ ist ein wichtiger Bestandteil der heutigen Welt, das auch von großen Tech
 
 Das Ergebnis des Projekts kann auf meiner gitHub-Pages Website gefunden werden. Hier ist ein Link: <a href="https://hanglma.github.io/Wissenschafts-Woche-2024/"> gitHub-Pages Link</a>
 
-Das gitHub-Tutorial ist in einer besonderen Programmiersprache geschrieben, sodass die Datei leicht in jedes git-Projekt integriert werden kann. So steht es immer zur Verfügung und Befehle können jederzeit nachgelesen werden.
+Das gitHub-Tutorial ist in einer besonderen Programmiersprache geschrieben, sodass die Datei leicht in jedes git-Projekt integriert werden kann. So steht es immer zur Verfügung und Befehle können jederzeit nachgelesen werden. Diese Datei findest du hier: <a href="https://github.com/hanglma/Wissenschafts-Woche-2024/blob/master/gitTutorial.md">gitHub Tutorial.</a>
