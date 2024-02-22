@@ -233,3 +233,209 @@ dist-ssr
 *.sln
 *.sw?
 ```
+
+# Deploying a Website to GitHub Pages
+
+## Introduction
+
+In this tutorial, I'll show you how you can create a website and deploy it to GitHub Pages.
+
+To deploy the website, I'll be using the package [`gh-pages`](https://github.com/tschaub/gh-pages), which is an npm package people can use to deploy things to [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages), a free web hosting service provided by GitHub.
+
+If you follow along with this tutorial, you'll end up with a new website hosted on GitHub Pages, which you can then customize.
+
+## Tutorial
+
+### Prerequisites
+
+1. [Node and npm](https://nodejs.org/en/download/) are installed. Here are the versions I'll be using while making this tutorial:
+
+   ```shell
+   $ node --version
+   v20.11.0
+
+   $ npm --version
+   10.2.4
+   ```
+
+   > Installing npm adds two commands to the system - `npm` and `npx` - only `npm` will be used in this tutorial.
+
+2. [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) is installed. Here's the version I'll be using while making this tutorial:
+
+   ```shell
+   $ git --version
+   git version 2.43.0.windows.1
+   ```
+
+3. A [GitHub](https://github.com/signup) account. :octocat:
+
+4. A project folder that contains your website. (the project doesn't need to be uploaded to gitHub yet)
+
+### Procedure
+
+#### 1. Setup the repository
+
+1. Branch names: `master` vs. `main`
+
+   > The Git repository will have one branch, which will be named either (a) `master`, the default for a fresh Git installation; or (b) the value of the Git configuration variable, `init.defaultBranch`, if your computer is running Git version 2.28 or later _and_ you have [set that variable](https://github.blog/2020-07-27-highlights-from-git-2-28/#introducing-init-defaultbranch) in your Git configuration (e.g. via `$ git config --global init.defaultBranch main`).
+   >
+   > Since I have not set that variable in my Git installation, the branch in my repository will be named `master`. In case the branch in your repository has a different name (which you can check by running `$ git branch`), such as `main`; you can **replace** all occurrences of `master` throughout the remainder of this tutorial, with that other name (e.g. `master` → `main`).
+
+2. Enter the your project folder:
+
+   ```shell
+   $ cd my-website
+   ```
+
+3. Initialize your project as a git repository
+
+   ```shell
+   $ git init
+   ```
+
+At this point, there is a website on your computer and you are in the folder that contains its source code. All of the remaining commands shown in this tutorial can be run from that folder.
+
+#### 2. Install the `gh-pages` npm package
+
+1. Install the [`gh-pages`](https://github.com/tschaub/gh-pages) npm package and designate it as a [development dependency](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file):
+
+   ```shell
+   $ npm install gh-pages --save-dev
+   ```
+
+At this point, the `gh-pages` npm package is installed on your computer and the website's dependence upon it is documented in the website's `package.json` file.
+
+#### 3. Add a `homepage` property to the `package.json` file
+
+1.  Open your text editor and then the `package.json` file.
+
+    ```shell
+    $ code .
+    ```
+
+    > In this tutorial, the text editor I'll be using is [Visual Studio Code](https://code.visualstudio.com/). You can use any text editor you want; for example, [vi](https://www.vim.org/).
+
+2.  Add a `homepage` property in this format: `https://{username}.github.io/{repo-name}`
+
+    > For a [project site](https://pages.github.com/#project-site), that's the format. For a [user site](https://pages.github.com/#user-site), the format is: `https://{username}.github.io`. You can read more about the `homepage` property in the ["GitHub Pages" section](https://create-react-app.dev/docs/deployment/#github-pages) of the `create-react-app` documentation.
+
+        ```diff
+        {
+          "name": "my-app",
+          "version": "0.1.0",
+        + "homepage": "https://gitname.github.io/react-gh-pages",
+          "private": true,
+        ```
+
+    At this point, the website's `package.json` file includes a property named `homepage`.
+
+#### 4. Add deployment scripts to the `package.json` file
+
+1. Open the `package.json` file in a text editor (if it isn't already open in one).
+
+2. Add a `predeploy` property and a `deploy` property to the `scripts` object:
+
+   ```diff
+   "scripts": {
+   +   "predeploy": "npm run build",
+   +   "deploy": "gh-pages -d build",
+       "start": "react-scripts start",
+       "build": "react-scripts build",
+   ```
+
+At this point, the website's `package.json` file includes deployment scripts.
+
+#### 5. Add a "remote" that points to the GitHub repository
+
+1. Add a "[remote](https://git-scm.com/docs/git-remote)" to the local Git repository.
+
+   You can do that by issuing a command in this format:
+
+   ```shell
+   $ git remote add origin https://github.com/{username}/{repo-name}.git
+   ```
+
+   To customize that command for your situation, replace `{username}` with your GitHub username and replace `{repo-name}` with the name of the GitHub repository you created in Step 1.
+
+   In my case, I'll run:
+
+   ```shell
+   $ git remote add origin https://github.com/gitname/react-gh-pages.git
+   ```
+
+   > That command tells Git where I want it to push things whenever I—or the `gh-pages` npm package acting on my behalf—issue the `$ git push` command from within this local Git repository.
+
+At this point, the local repository has a "remote" whose URL points to the GitHub repository you created in Step 1.
+
+#### 6. Push the website to the GitHub repository
+
+1. Push the website to the GitHub repository
+
+   ```shell
+   $ npm run deploy
+   ```
+
+   > That will cause the `predeploy` and `deploy` scripts defined in `package.json` to run.
+   >
+   > Under the hood, the `predeploy` script will build a distributable version of the React app and store it in a folder named `build`. Then, the `deploy` script will push the contents of that folder to a new commit on the `gh-pages` branch of the GitHub repository, creating that branch if it doesn't already exist.
+
+   > By default, the new commit on the `gh-pages` branch will have a commit message of "Updates". You can [specify a custom commit message](https://github.com/gitname/react-gh-pages/issues/80#issuecomment-1042449820) via the `-m` option, like this:
+   >
+   > ```shell
+   > $ npm run deploy -- -m "Deploy website to GitHub Pages"
+   > ```
+
+At this point, the GitHub repository contains a branch named `gh-pages`, which contains the files that make up the distributable version of the website. However, we haven't configured GitHub Pages to _serve_ those files yet.
+
+#### 7. Configure GitHub Pages
+
+1. Navigate to the **GitHub Pages** settings page
+   1. In your web browser, navigate to the GitHub repository
+   1. Above the code browser, click on the tab labeled "Settings"
+   1. In the sidebar, in the "Code and automation" section, click on "Pages"
+1. Configure the "Build and deployment" settings like this:
+   1. **Source**: Deploy from a branch
+   2. **Branch**:
+      - Branch: `gh-pages`
+      - Folder: `/ (root)`
+1. Click on the "Save" button
+
+**That's it!** The website has been deployed to GitHub Pages! :rocket:
+
+At this point, the website is accessible to anyone who visits the `homepage` URL you specified in Step 3. For example, the website I deployed would be accessible at https://gitname.github.io/react-gh-pages.
+
+#### 8. (Optional) Store the website's _source code_ on GitHub
+
+In a previous step, the `gh-pages` npm package pushed the distributable version of the website to a branch named `gh-pages` in the GitHub repository. However, the _source code_ of the website is not yet stored on GitHub.
+
+In this step, I'll show you how you can store the source code of the React app on GitHub.
+
+1. Commit the changes you made while you were following this tutorial, to the `master` branch of the local Git repository; then, push that branch up to the `master` branch of the GitHub repository.
+
+   ```shell
+   $ git add .
+   $ git commit -m "Configure React app for deployment to GitHub Pages"
+   $ git push origin master
+   ```
+
+   > I recommend exploring the GitHub repository at this point. It will have two branches: `master` and `gh-pages`. The `master` branch will contain the website's source code, while the `gh-pages` branch will contain the distributable version of the website.
+
+#### 9. (Optional) Configure build folder in diffrent frameworks
+
+The `npm build` command sometimes creates a build folder called `dist` (when using specific frameworks), however the `gh-pages` package needs this folder to be called `build`. You can configure the name of this folder in the `config.js` file of the framework. The framework I use is called `vite` so the config file is called `vite.config.js` (sometimes this file won't exist yet => just create it the file). Now copy the following code into this file.
+
+```
+export default {
+	// config options
+	base: '',
+	build: {
+		outDir: 'build', // output directory here
+	},
+};
+```
+
+## References
+
+1. [The tutoial this that inspired this one](https://create-react-app.dev/docs/deployment/#github-pages)
+2. [GitHub blog: Build and deploy GitHub Pages from any branch](https://github.blog/changelog/2020-09-03-build-and-deploy-github-pages-from-any-branch/)
+3. [Preserving the `CNAME` file when using a custom domain](https://github.com/gitname/react-gh-pages/issues/89#issuecomment-1207271670)
